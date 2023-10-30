@@ -5,6 +5,7 @@ minima:
   skin: dark
 
 header_pages:
-  - sas.md
-  - ses.md
+  - Candidatura.md
+  - RTB.md
+  - RB.md
   

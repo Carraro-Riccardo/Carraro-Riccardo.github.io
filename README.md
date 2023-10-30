@@ -1,4 +1,4 @@
 Documents:
-- Candidatura:
-  - [sas](sas.md)
-  - [ses](ses.md)   
+- [Candidatura](Candidatura.md)
+- [RTB](RTB.md)
+- [RB](RB.md)

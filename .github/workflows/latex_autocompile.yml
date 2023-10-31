@@ -1,4 +1,5 @@
 name: LaTeX Build
+
 on:
   push:
     branches:
@@ -12,12 +13,19 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Setup TeX Live
-      uses: xu-cheng/texlive-action@v2
+    - name: Restore TeX Live cache
+      uses: actions/cache@v2
       with:
-        tex-packages: "pdflatex"
+        path: /usr/local/texlive # Path to the TeX Live installation directory
+        key: texlive-${{ runner.os }}-${{ hashFiles('**/*.tex') }}
 
-    - name: Run Autocompile file
+    - name: Compile LaTeX Files
       run: |
         chmod a+x ./bash_scripts/latex_autocompile.sh
         ./bash_scripts/latex_autocompile.sh
+
+    - name: Save TeX Live cache
+      uses: actions/cache@v2
+      with:
+        path: /usr/local/texlive
+        key: texlive-${{ runner.os }}-${{ hashFiles('**/*.tex') }}

@@ -1,12 +1,9 @@
 #!/bin/bash
 
-# Get the absolute path of the current script
-script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
 # Markdown file to store the structure
-markdown_file="$script_dir/docs/prova.md"
+markdown_file="./docs/prova.md"
 # Start processing the root directory
-root_directory="$script_dir/docs/Candidatura"
+root_directory="./docs/Candidatura"
 
 # Create the Markdown file or clear it if it exists
 > "$markdown_file"

@@ -30,6 +30,6 @@ jobs:
 
     - name: Generate RB Markdown Links 
       run: |
-        chmod a+x ./bash_scripts/update_rb.sh
-        ./bash_scripts/update_rb.sh
+        chmod a+x ./bash_scripts/update_pb.sh
+        ./bash_scripts/update_pb.sh
         

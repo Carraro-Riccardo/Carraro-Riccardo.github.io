@@ -1,9 +1,11 @@
 #!/bin/bash
 
 # Markdown file to store the structure
-markdown_file="./docs/prova.md"
+markdown_file="prova.md"
 # Start processing the root directory
-root_directory="./docs/Candidatura"
+root_directory="./docs/Candidatura/"
+
+cd $root_directory
 
 # Create the Markdown file or clear it if it exists
 > "$markdown_file"

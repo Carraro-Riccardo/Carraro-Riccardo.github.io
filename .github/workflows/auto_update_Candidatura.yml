@@ -20,6 +20,8 @@ jobs:
 
     - name: Generate Markdown Links
       run: |
+        list
+        dir
         chmod +x ./bash_scripts/process_subfolders_candidatura.sh
         ./bash_scripts/process_subfolders_candidatura.sh
         

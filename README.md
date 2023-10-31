@@ -1,4 +1,4 @@
 Documents:
-- [Candidatura](Candidatura.md)
-- [RTB](RTB.md)
-- [RB](RB.md)
+- [Candidatura](./docs/candidatura.md)
+- [RTB](./docs/RTB.md)
+- [RB](./docs/RB.md)

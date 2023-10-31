@@ -4,7 +4,10 @@ title: Error_418 Docs Repo
 minima:
   skin: dark
 
+include:
+  - _pages
+  
 header_pages:
-  - _pages/candidatura.md
-  - _pages/RTB.md
-  - _pages/PB.md
+  - candidatura.md
+  - RTB.md
+  - PB.md

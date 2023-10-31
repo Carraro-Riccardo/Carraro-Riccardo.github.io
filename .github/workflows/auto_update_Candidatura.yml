@@ -20,7 +20,7 @@ jobs:
 
     - name: Clear file
     - run: |
-        > prova.md
+        echo -n "" > prova.md
 
     - name: Generate Markdown Links
       run: |

@@ -1,6 +1,7 @@
 folder_path="./docs/RTB/"
 markdown_file="RTB.md"
 
+cd ./_pages
 cd "$folder_path" || exit
 
 # Inizializza il file Markdown con l'intestazione

@@ -34,7 +34,7 @@ process_directory() {
 }
 
 # Start processing the root directory
-root_directory="./docs/Candidatura"
+root_directory="../docs/Candidatura"
 
 echo "# File Structure" > "${root_directory}/$markdown_file"
 process_directory "$root_directory" ""

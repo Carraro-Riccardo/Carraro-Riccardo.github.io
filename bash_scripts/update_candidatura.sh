@@ -16,13 +16,19 @@
         #git commit -m "Update file links"
         #git push
 
-        folder_path="./docs/Candidatura/"
+folder_path="./docs/Candidatura/"
 markdown_file="prova.md"
 
 cd "$folder_path" || exit
 
 # Inizializza il file Markdown con l'intestazione
 > "../$markdown_file"
+
+echo "---" >> "../$markdown_file"
+echo "layout: default" >> "../$markdown_file"
+echo "title: Candidatura" >> "../$markdown_file"
+echo "---" >> "../$markdown_file"
+
 echo "# Candidatura" >> "../$markdown_file"
 
 # Funzione ricorsiva per aggiungere il nome delle sottocartelle e il loro contenuto

@@ -2,17 +2,17 @@
 layout: default
 title: Candidatura
 ---
-- [LetteraDiPresentazione.pdf](./LetteraDiPresentazione.pdf)
-- [PreventivoCosti.pdf](./PreventivoCosti.pdf)
-- [ValutazioneCapitolati.pdf](./ValutazioneCapitolati.pdf)
+- [LetteraDiPresentazione.pdf](./docs/Candidatura/./item)
+- [PreventivoCosti.pdf](./docs/Candidatura/./item)
+- [ValutazioneCapitolati.pdf](./docs/Candidatura/./item)
 - **Verbali**
   - **Esterni**
-    - [26-10-23.pdf](./Verbali/Esterni/26-10-23.pdf)
+    - [26-10-23.pdf](./docs/Candidatura/./Verbali/Esterni/item)
   - **Interni**
-    - [17-10-23.pdf](./Verbali/Interni/17-10-23.pdf)
-    - [18-10-23.pdf](./Verbali/Interni/18-10-23.pdf)
-    - [21-10-23.pdf](./Verbali/Interni/21-10-23.pdf)
-    - [25-10-23.pdf](./Verbali/Interni/25-10-23.pdf)
-    - [26-10-23.pdf](./Verbali/Interni/26-10-23.pdf)
-    - [29-10-23.pdf](./Verbali/Interni/29-10-23.pdf)
-    - [30-10-23.pdf](./Verbali/Interni/30-10-23.pdf)
+    - [17-10-23.pdf](./docs/Candidatura/./Verbali/Interni/item)
+    - [18-10-23.pdf](./docs/Candidatura/./Verbali/Interni/item)
+    - [21-10-23.pdf](./docs/Candidatura/./Verbali/Interni/item)
+    - [25-10-23.pdf](./docs/Candidatura/./Verbali/Interni/item)
+    - [26-10-23.pdf](./docs/Candidatura/./Verbali/Interni/item)
+    - [29-10-23.pdf](./docs/Candidatura/./Verbali/Interni/item)
+    - [30-10-23.pdf](./docs/Candidatura/./Verbali/Interni/item)

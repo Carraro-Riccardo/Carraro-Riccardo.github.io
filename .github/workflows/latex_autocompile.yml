@@ -20,6 +20,14 @@ jobs:
         path: /usr/local/texlive
         key: texlive-${{ runner.os }}
 
+    - name: Install TeX Live
+      if: steps.restore-cache.outputs.cache-hit != 'true'
+      run: |
+        sudo apt-get update
+        sudo apt-get install texlive-xetex
+        sudo apt-get install texlive-fonts-recommended
+        sudo apt-get install texlive-fonts-extra
+
     - name: Compile LaTeX files
       working-directory: ${{ github.workspace }}/TexFiles
       run: |

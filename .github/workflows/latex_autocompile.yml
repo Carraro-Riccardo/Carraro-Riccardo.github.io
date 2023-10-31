@@ -22,4 +22,4 @@ jobs:
           *.tex
 
     - name: Move pdf files
-      run: mv *.pdf PDF_folder
+      run: mv *.pdf ./PDF_folder/

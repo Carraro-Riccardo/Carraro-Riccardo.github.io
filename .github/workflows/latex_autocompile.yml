@@ -22,7 +22,7 @@ jobs:
 
     - name: Setup TeX Live
       id: setup-texlive
-      uses: josephwright/setup-texlive@v2
+      uses: xu-cheng/texlive-action@v2
       with:
         profile: basic
         package-list: pdflatex

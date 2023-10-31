@@ -2,4 +2,4 @@
 layout: default
 title: Requirements and Technologies Baseline
 ---
-- [empty.txt](./empty.txt)
+- [empty.txt](./docs/RTB//empty.txt)

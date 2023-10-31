@@ -1,1 +1,23 @@
+name: LaTeX Build
+on:
+  push:
+    branches:
+      - main
 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup TeX Live
+      uses: xu-cheng/texlive-action@v2
+      with:
+        tex-packages: "pdflatex"
+
+    - name: Run Autocompile file
+      run: |
+        chmod a+x ./bash_scripts/latex_autocompile.sh
+        ./bash_scripts/latex_autocompile.sh

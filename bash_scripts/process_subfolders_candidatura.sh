@@ -2,6 +2,11 @@
 
 # Markdown file to store the structure
 markdown_file="./docs/Candidatura/prova.md"
+# Start processing the root directory
+root_directory="./docs/Candidatura"
+# Create the Markdown file or clear it if it exists
+> "$markdown_file"
+echo "# File Structure" >> "$markdown_file"
 
 # Function to process a directory
 process_directory() {
@@ -32,13 +37,6 @@ process_directory() {
   # No need to return to the parent directory here
 }
 
-# Start processing the root directory
-root_directory="./docs/Candidatura"
-
-# Create the Markdown file or clear it if it exists
-> "$markdown_file"
-
-echo "# File Structure" >> "$markdown_file"
 process_directory "$root_directory" ""
 
 echo "File structure has been generated and saved in $markdown_file."

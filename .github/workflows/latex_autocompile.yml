@@ -21,6 +21,7 @@ jobs:
         sudo apt-get install texlive-fonts-extra
 
     - name: Compile LaTeX files
+      working-directory: ${{ github.workspace }}/TexFiles
       run: |
         source_folder="./TexFiles"  # Update with your source folder
         destination_folder="pdf_generated"  # Update with your destination folder

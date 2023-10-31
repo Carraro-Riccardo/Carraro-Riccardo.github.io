@@ -13,15 +13,15 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Cache TeX Live
+    - name: Restore TeX Live Cache
+      id: restore-cache
       uses: actions/cache@v2
       with:
         path: /usr/local/texlive
-        key: texlive-${{ runner.os }}-${{ hashFiles('**/*.tex') }}
-        restore-keys: texlive-${{ runner.os }}
+        key: texlive-${{ runner.os }}
 
     - name: Install TeX Live
-      if: steps.cache-texlive.outputs.cache-hit != 'true'
+      if: steps.restore-cache.outputs.cache-hit != 'true'
       run: |
         sudo apt-get update
         sudo apt-get install texlive-xetex

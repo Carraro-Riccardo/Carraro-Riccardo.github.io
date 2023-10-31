@@ -20,16 +20,11 @@ jobs:
         key: texlive-${{ runner.os }}-${{ hashFiles('**/*.tex') }}
       if: runner.os == 'Linux' # Adjust for other operating systems
 
-    - name: Setup TeX Live
-      id: setup-texlive
-      uses: xu-cheng/texlive-action@v2
-      with:
-        profile: basic
-        package-list: pdflatex
+    - name: Install TeX Live
+      run: sudo apt-get update -q && sudo apt-get install -y texlive-full
 
     - name: Install latexmk
-      run: tlmgr install latexmk
-      if: steps.setup-texlive.outcome == 'success'
+      run: sudo apt-get install -y latexmk
 
     - name: Compile LaTeX Files
       run: |

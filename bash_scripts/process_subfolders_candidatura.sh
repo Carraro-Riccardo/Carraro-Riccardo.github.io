@@ -12,7 +12,7 @@ process_directory() {
   echo "- $indent$(basename "$dir")" >> "$markdown_file"
 
   # Enter the directory
-  cd "$dir" || exit
+  cd "$dir" || return
 
   # Loop through the files in the directory
   for file in *; do

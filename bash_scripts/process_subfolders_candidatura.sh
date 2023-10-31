@@ -24,7 +24,7 @@ process_directory() {
     for file in *; do
       if [ -f "$file" ]; then
         # Append file names with proper indentation
-        echo "  - $indent$file" >> "$markdown_file"
+        echo "  - $indent $file" >> "$markdown_file"
       fi
     done
 

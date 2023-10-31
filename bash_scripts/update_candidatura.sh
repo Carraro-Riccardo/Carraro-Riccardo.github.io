@@ -57,3 +57,4 @@ git add "../$markdown_file"
 git commit -m "Update file links"
 git push
 
+mv "../$markdown_file" ../../_pages/

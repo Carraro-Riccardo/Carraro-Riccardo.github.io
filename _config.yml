@@ -5,7 +5,7 @@ minima:
   skin: dark
 
 header_pages:
-  - .docs/candidatura.md
-  - .docs/RTB.md
-  - .docs/RB.md
+  - ./docs/candidatura.md
+  - ./docs/RTB.md
+  - ./docs/RB.md
   

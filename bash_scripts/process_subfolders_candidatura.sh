@@ -33,9 +33,9 @@ process_directory() {
     done
 
     # Recursively process subdirectories
-    for sub_dir in */; do
-      process_directory "$sub_dir" "$indent  "
-    done
+    #for sub_dir in */; do
+      #process_directory "$sub_dir" "$indent  "
+    #done
   )
 }
 

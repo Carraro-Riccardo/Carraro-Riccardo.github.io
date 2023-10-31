@@ -51,10 +51,10 @@ function add_folder_contents {
 # Esegui la funzione ricorsiva sulla cartella principale
 add_folder_contents . ""
 
-mv "../$markdown_file" ../_pages/
+mv "../$markdown_file" ../../
 # Esegui i comandi Git
 git config user.email "actions@github.com"
 git config user.name "GitHub Actions"
-git add "../_pages/$markdown_file"
+git add "../../$markdown_file"
 git commit -m "Update file links"
 git push

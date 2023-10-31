@@ -1,3 +1,7 @@
+---
+layout: default
+title: Candidatura
+---
 # Candidatura
 - [LetteraDiPresentazione.pdf](./LetteraDiPresentazione.pdf)
 - [PreventivoCosti.pdf](./PreventivoCosti.pdf)

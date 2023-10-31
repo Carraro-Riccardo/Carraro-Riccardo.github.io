@@ -1,4 +1,4 @@
-folder_path="./_pages/docs/RTB/"
+folder_path="./docs/RTB/"
 markdown_file="RTB.md"
 
 cd "$folder_path" || exit
@@ -36,6 +36,6 @@ mv "../$markdown_file" ../../_pages/
 # Esegui i comandi Git
 git config user.email "actions@github.com"
 git config user.name "GitHub Actions"
-git add "../../_pages/$markdown_file"
+git add "../../$markdown_file"
 git commit -m "Update file links"
 git push

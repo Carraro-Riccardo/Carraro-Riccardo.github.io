@@ -40,7 +40,7 @@ function add_folder_contents {
       clear_folder_path=$(echo "$current_folder" | cut -c 3-)
       echo $current_folder
       echo $clear_folder_path
-      echo "${indent}- [$(basename "$item")]($folder_path$clear_folder_path$(basename "$item"))" >> "../$markdown_file"
+      echo "${indent}- [$(basename "$item")]($folder_path$clear_folder_path/$(basename "$item"))" >> "../$markdown_file"
     elif [ -d "$item" ]; then
       # Se è una sottocartella, aggiungi il nome e poi chiamata ricorsiva
       folder_name=$(basename "$item")

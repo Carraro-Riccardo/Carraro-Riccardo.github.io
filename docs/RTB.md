@@ -1,6 +1,5 @@
 ---
 layout: default
-title: Candidatura
+title: Requirements and Technologies Baseline
 ---
-# Requirements and Technologies Baseline
 - [empty.txt](./empty.txt)

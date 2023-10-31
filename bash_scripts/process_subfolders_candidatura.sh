@@ -21,8 +21,6 @@ process_directory() {
 
   # Use a subshell to isolate directory changes
   (
-    cd "$dir" || return
-
     # Loop through the files in the directory
     for file in *; do
       if [ -f "$file" ]; then

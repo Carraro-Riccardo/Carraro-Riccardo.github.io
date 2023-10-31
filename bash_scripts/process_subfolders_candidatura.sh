@@ -1,9 +1,13 @@
 #!/bin/bash
 
+# Get the absolute path of the current script
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # Markdown file to store the structure
-markdown_file="./docs/prova.md"
+markdown_file="$script_dir/docs/prova.md"
 # Start processing the root directory
-root_directory="./docs/Candidatura"
+root_directory="$script_dir/docs/Candidatura"
+
 # Create the Markdown file or clear it if it exists
 > "$markdown_file"
 echo "# File Structure" >> "$markdown_file"
@@ -24,7 +28,7 @@ process_directory() {
     for file in *; do
       if [ -f "$file" ]; then
         # Append file names with proper indentation
-        echo "  - $indent $file" >> "$markdown_file"
+        echo "  - $indent$file" >> "$markdown_file"
       fi
     done
 
@@ -33,8 +37,6 @@ process_directory() {
       process_directory "$sub_dir" "$indent  "
     done
   )
-
-  # No need to return to the parent directory here
 }
 
 process_directory "$root_directory" ""

@@ -19,7 +19,7 @@ jobs:
         python-version: '3.x'
 
     - name: Clear file
-    - run: echo -n "" > prova.md
+      run: echo -n "" > prova.md
 
     - name: Generate Markdown Links
       run: |

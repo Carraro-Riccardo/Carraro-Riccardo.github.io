@@ -1,0 +1,79 @@
+\documentclass[a4paper, twoside]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=false, allcolors=black]{hyperref}
+%------------------------
+\title{\Huge Analisi Capitolati}
+\author{Error\_418}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\setlength {\marginparwidth }{2cm}
+%%page number
+\pagestyle{plain}
+%---------------
+\begin{document}
+\sffamily
+\begin{titlepage}
+%----------------------------------------------------------------------------------------
+%	LOGO SECTION
+%----------------------------------------------------------------------------------------
+\centering
+\includegraphics[width=8cm]{title/logo.png}\\[1.5cm]
+%----------------------------------------------------------------------------------------
+\center % Center everything on the page
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+\textsf{\Huge VERBALE INTERNO}\\[2cm]
+\textsf{\Large ERROR\_418}\\[0.5cm]
+\textsf{\Large DOCUMENTAZIONE PROGETTO}\\[0.5cm]
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+\makeatletter
+\HRule \\[0.4cm]
+{ \huge \bfseries \@title}\\[0.4cm]
+\HRule \\[1.5cm]
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Autore:}\\
+\@author % Your name
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Data:}\\
+{\large 25 Ottobre 2023}\\[1cm]
+\end{flushright}
+\end{minipage}
+
+\vspace{1cm} % Spazio aggiuntivo tra le sezioni
+
+\begin{center} % Centro delle sezioni Redattore e Validatori
+\emph{\Large Redattori:}\\
+% Inserisci il nome del redattore qui
+\vspace{1cm} % Spazio aggiuntivo tra le voci Redattore e Validatori
+\emph{\Large Validatori:}\\
+% Inserisci i nomi dei validatori qui
+\end{center}
+
+\vfill % Fill the rest of the page with whitespace
+\end{titlepage}
+
+\newpage % Vai alla pagina successiva
+\tableofcontents
+\newpage
+
+% Fine template
+% Inserire il resto del documento qui
+\end{document}

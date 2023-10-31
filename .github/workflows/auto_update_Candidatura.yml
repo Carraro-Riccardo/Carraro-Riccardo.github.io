@@ -18,7 +18,7 @@ jobs:
         python-version: '3.x'
 
     - name: generate Markdown Links
-      run: |
+      run: 
       folder_path = "./docs/Candidatura/"
       markdown_file = "prova.md"
 

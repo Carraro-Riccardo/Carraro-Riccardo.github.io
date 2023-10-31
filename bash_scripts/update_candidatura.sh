@@ -16,6 +16,7 @@
         #git commit -m "Update file links"
         #git push
 
+cd ./_pages
 folder_path="./docs/Candidatura/"
 markdown_file="candidatura.md"
 

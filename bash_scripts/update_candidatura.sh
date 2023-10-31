@@ -37,7 +37,8 @@ function add_folder_contents {
   for item in "$current_folder"/*; do
     if [ -f "$item" ]; then
       # Se è un file, aggiungi un link al file nel Markdown
-      echo "${indent}- [$(basename "$item")]($folder_path$current_folder/$(basename "$item"))" >> "../$markdown_file"
+      clear_folder_path = $(echo "$current_folder" | cut -c 3-)
+      echo "${indent}- [$(basename "$item")]($folder_path$clear_folder_path/$(basename "$item"))" >> "../$markdown_file"
     elif [ -d "$item" ]; then
       # Se è una sottocartella, aggiungi il nome e poi chiamata ricorsiva
       folder_name=$(basename "$item")

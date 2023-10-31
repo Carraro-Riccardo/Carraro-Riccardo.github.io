@@ -13,15 +13,31 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Restore TeX Live Cache
+      uses: actions/cache@v2
+      with:
+        path: /usr/local/texlive # Path to TeX Live installation
+        key: texlive-${{ runner.os }}-${{ hashFiles('**/*.tex') }}
+      if: runner.os == 'Linux' # Adjust for other operating systems
+
     - name: Setup TeX Live
+      id: setup-texlive
       uses: xu-cheng/texlive-action@v2
       with:
         tex-packages: "pdflatex"
 
     - name: Install latexmk
       run: sudo tlmgr install latexmk
+      if: steps.setup-texlive.outcome == 'success'
 
     - name: Compile LaTeX Files
       run: |
         chmod a+x ./bash_scripts/latex_autocompile.sh
         ./bash_scripts/latex_autocompile.sh
+
+    - name: Save TeX Live Cache
+      uses: actions/cache@v2
+      with:
+        path: /usr/local/texlive # Path to TeX Live installation
+        key: texlive-${{ runner.os }}-${{ hashFiles('**/*.tex') }}
+      if: steps.setup-texlive.outcome == 'success'

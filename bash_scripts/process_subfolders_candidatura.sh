@@ -24,7 +24,7 @@ process_directory() {
 
   # Recursively process subdirectories
   for sub_dir in */; do
-    echo sub_dir
+    echo $sub_dir
     process_directory "$sub_dir" "$indent  "
   done
 

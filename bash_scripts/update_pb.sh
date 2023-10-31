@@ -1,6 +1,7 @@
 folder_path="./docs/PB/"
 markdown_file="PB.md"
 
+cd ./_pages
 cd "$folder_path" || exit
 
 # Inizializza il file Markdown con l'intestazione

@@ -36,9 +36,6 @@ process_directory() {
 # Start processing the root directory
 root_directory="./docs/Candidatura"
 
-# Create the Markdown file or clear it if it exists
-touch "${root_directory}/$markdown_file"
-
 echo "# File Structure" > "${root_directory}/$markdown_file"
 process_directory "$root_directory" ""
 

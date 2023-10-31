@@ -1,0 +1,33 @@
+name: update Candidatura
+
+on:
+  push:
+    - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps: 
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up VM
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: generate Markdown Links
+      run: |
+      folder_path = "./docs/Candidatura/"
+      markdown_file = "prova.md"
+
+      for file in *; do
+        if [-f "$file"]; then
+          echo "[${file}](${folder_path}/${file})" >> "$markdown_file"
+        fi
+      done
+
+      git add "$markdown_file"
+      git commit -m "update file link"
+      git push

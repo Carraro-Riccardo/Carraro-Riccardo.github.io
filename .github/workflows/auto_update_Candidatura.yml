@@ -1,14 +1,15 @@
-name: update Candidatura
+name: Update Candidatura
 
 on:
   push:
-    - main
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    steps: 
+    steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
@@ -17,17 +18,21 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: generate Markdown Links
+    - name: Generate Markdown Links
       run: |
-      folder_path = "./docs/Candidatura/"
-      markdown_file = "prova.md"
+        folder_path="./docs/Candidatura/"
+        markdown_file="prova.md"
 
-      for file in *; do
-        if [-f "$file"]; then
-          echo "[${file}](${folder_path}/${file})" >> "$markdown_file"
-        fi
-      done
+        cd "$folder_path" || exit
 
-      git add "$markdown_file"
-      git commit -m "update file link"
-      git push
+        for file in *; do
+          if [ -f "$file" ]; then
+            echo "[${file}](${folder_path}${file})" >> "../$markdown_file"
+          fi
+        done
+
+        git config user.email "actions@github.com"
+        git config user.name "GitHub Actions"
+        git add "../$markdown_file"
+        git commit -m "Update file links"
+        git push

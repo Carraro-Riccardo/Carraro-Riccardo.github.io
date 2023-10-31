@@ -37,7 +37,7 @@ function add_folder_contents {
   for item in "$current_folder"/*; do
     if [ -f "$item" ]; then
       # Se è un file, aggiungi un link al file nel Markdown
-      clear_folder_path = $(echo "$current_folder" | cut -c 3-)
+      clear_folder_path=$(echo "$current_folder" | cut -c 3-)
       echo $current_folder
       echo $clear_folder_path
       echo "${indent}- [$(basename "$item")]($folder_path$clear_folder_path$(basename "$item"))" >> "../$markdown_file"

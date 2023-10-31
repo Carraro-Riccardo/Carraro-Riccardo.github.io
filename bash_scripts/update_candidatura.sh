@@ -29,7 +29,6 @@ echo "layout: default" >> "../$markdown_file"
 echo "title: Candidatura" >> "../$markdown_file"
 echo "---" >> "../$markdown_file"
 
-echo "# Candidatura" >> "../$markdown_file"
 
 # Funzione ricorsiva per aggiungere il nome delle sottocartelle e il loro contenuto
 function add_folder_contents {

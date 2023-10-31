@@ -35,7 +35,7 @@ process_directory() {
 # Start processing the root directory
 root_directory="./docs/Candidatura"
 
-echo "# File Structure" > "${root_directory}/$markdown_file"
+echo "# File Structure" > "./docs/Candidatura/prova.md"
 process_directory "$root_directory" ""
 
 echo "File structure has been generated and saved in $markdown_file."

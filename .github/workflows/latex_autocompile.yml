@@ -13,13 +13,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Restore TeX Live Cache
-      id: restore-cache
-      uses: actions/cache@v2
-      with:
-        path: /usr/local/texlive
-        key: texlive-${{ runner.os }}
-
     - name: Install TeX Live
       if: steps.restore-cache.outputs.cache-hit != 'true'
       run: |

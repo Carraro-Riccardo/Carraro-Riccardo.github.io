@@ -19,7 +19,8 @@ jobs:
         python-version: '3.x'
 
     - name: Clear file
-    - run: > filename
+    - run: |
+        > prova.md
 
     - name: Generate Markdown Links
       run: |

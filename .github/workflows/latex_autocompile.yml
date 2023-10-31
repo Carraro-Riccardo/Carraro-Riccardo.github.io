@@ -34,4 +34,4 @@ jobs:
 
     - name: List generated PDFs
       run: |
-        ls -l ./pdf_generated  # List the generated PDFs in the destination folder
+        ls -l ./TexFiles/pdf_generated  # List the generated PDFs in the destination folder

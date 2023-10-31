@@ -1,4 +1,4 @@
-folder_path="../docs/PB/"
+folder_path="./_pages/docs/PB/"
 markdown_file="PB.md"
 
 cd "$folder_path" || exit

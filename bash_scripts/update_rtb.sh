@@ -1,4 +1,4 @@
-folder_path="./docs/RTB/"
+folder_path="../docs/RTB/"
 markdown_file="RTB.md"
 
 cd "$folder_path" || exit

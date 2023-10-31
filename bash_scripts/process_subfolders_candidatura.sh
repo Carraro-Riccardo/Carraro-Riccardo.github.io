@@ -29,10 +29,10 @@ process_directory() {
       fi
     done
 
-    # Recursively process subdirectories
-    #for sub_dir in */; do
-      #process_directory "$sub_dir" "$indent  "
-    #done
+    #Recursively process subdirectories
+    for sub_dir in */; do
+      process_directory "$sub_dir" "$indent  "
+    done
   )
 }
 

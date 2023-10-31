@@ -35,3 +35,9 @@ jobs:
     - name: List generated PDFs
       run: |
         ls -l ./TexFiles/pdf_generated  # List the generated PDFs in the destination folder
+
+    - name: Upload PDF artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: generated-pdfs
+        path: ./TexFiles/pdf_generated/*.pdf

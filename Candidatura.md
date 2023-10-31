@@ -16,4 +16,4 @@ Documenti per la candidatura
     - [29-10-23](docs/Candidatura/Verbali/Interni/29-10-23.pdf)
     - [30-10-23](docs/Candidatura/Verbali/Interni/30-10-23.pdf)
   - Esterni:
-    - [26-10-2023](_docs/Candidatura/Verbali/Esterni/26-10-23.pdf)
+    - [26-10-2023](docs/Candidatura/Verbali/Esterni/26-10-23.pdf)

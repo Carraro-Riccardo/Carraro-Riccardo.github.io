@@ -16,7 +16,7 @@
         #git commit -m "Update file links"
         #git push
 
-folder_path="../docs/Candidatura/"
+folder_path="./docs/Candidatura/"
 markdown_file="candidatura.md"
 
 cd "$folder_path" || exit
@@ -38,7 +38,7 @@ function add_folder_contents {
     if [ -f "$item" ]; then
       # Se è un file, aggiungi un link al file nel Markdown
       clear_folder_path=$(echo "$current_folder" | cut -c 3-)
-      echo "${indent}- [$(basename "$item")]($folder_path$clear_folder_path/$(basename "$item"))" >> "../$markdown_file"
+      echo "${indent}- [$(basename "$item")](.$folder_path$clear_folder_path/$(basename "$item"))" >> "../$markdown_file"
     elif [ -d "$item" ]; then
       # Se è una sottocartella, aggiungi il nome e poi chiamata ricorsiva
       folder_name=$(basename "$item")

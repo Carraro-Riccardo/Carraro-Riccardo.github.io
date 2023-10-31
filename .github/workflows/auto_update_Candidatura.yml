@@ -18,9 +18,6 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Clear file
-      run: echo -n "" > prova.md
-
     - name: Generate Markdown Links
       run: |
         chmod +x ./bash_scripts/process_subfolders_candidatura.sh

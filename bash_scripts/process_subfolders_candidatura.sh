@@ -25,7 +25,6 @@ process_directory() {
 
     # Recursively process subdirectories
     for sub_dir in */; do
-      echo $sub_dir
       process_directory "$sub_dir" "$indent  "
     done
   )
@@ -34,7 +33,7 @@ process_directory() {
 }
 
 # Start processing the root directory
-root_directory="../docs/Candidatura"
+root_directory="./docs/Candidatura"
 
 echo "# File Structure" > "${root_directory}/$markdown_file"
 process_directory "$root_directory" ""

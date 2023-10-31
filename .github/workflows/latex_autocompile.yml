@@ -1,0 +1,36 @@
+name: LaTeX Compilation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  compile-latex:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install TeX Live
+      run: |
+        sudo apt-get update
+        sudo apt-get install texlive-xetex
+        sudo apt-get install texlive-fonts-recommended
+        sudo apt-get install texlive-fonts-extra
+
+    - name: Compile LaTeX files
+      run: |
+        source_folder="./TexFiles"  # Update with your source folder
+        destination_folder="pdf_generated"  # Update with your destination folder
+
+        mkdir -p $destination_folder
+
+        for file in $source_folder/*.tex; do
+          pdflatex -output-directory=$destination_folder $file
+        done
+
+    - name: List generated PDFs
+      run: |
+        ls -l destination_folder  # List the generated PDFs in the destination folder

@@ -13,27 +13,13 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Restore TeX Live Cache
-      uses: actions/cache@v2
+    - name: action
+      uses: xu-cheng/latex-action@v3
       with:
-        path: /usr/local/texlive # Path to TeX Live installation
-        key: texlive-${{ runner.os }}-${{ hashFiles('**/*.tex') }}
-      if: runner.os == 'Linux' # Adjust for other operating systems
+        work_in_root_file_dir: ./TexFiles
+        args: -pdf
+        root_file: |
+          *.tex
 
-    - name: Install TeX Live
-      run: sudo apt-get update -q && sudo apt-get install -y texlive-full
-
-    - name: Install latexmk
-      run: sudo apt-get install -y latexmk
-
-    - name: Compile LaTeX Files
-      run: |
-        chmod a+x ./bash_scripts/latex_autocompile.sh
-        ./bash_scripts/latex_autocompile.sh
-
-    - name: Save TeX Live Cache
-      uses: actions/cache@v2
-      with:
-        path: /usr/local/texlive # Path to TeX Live installation
-        key: texlive-${{ runner.os }}-${{ hashFiles('**/*.tex') }}
-      if: steps.setup-texlive.outcome == 'success'
+    - name: Move pdf files
+      run: mv *.pdf PDF_folder

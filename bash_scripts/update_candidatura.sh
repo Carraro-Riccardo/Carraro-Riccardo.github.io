@@ -2,10 +2,11 @@
         markdown_file="prova.md"
         
         cd "$folder_path" || exit
-        echo "# Candidatura\n" >> "../$markdown_file"
+        > "../$markdown_file"
+        echo "# Candidatura" >> "../$markdown_file"
         for file in *; do
           if [ -f "$file" ]; then
-            echo "- [${file}](${folder_path}${file})\n" >> "../$markdown_file"
+            echo "- [${file}](${folder_path}${file})" >> "../$markdown_file"
           fi
         done
 

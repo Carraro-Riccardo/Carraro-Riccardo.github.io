@@ -2,7 +2,7 @@
 
 # Markdown file to store the structure
 markdown_file="prova.md"
-
+> "prova.md"
 # Function to process a directory
 process_directory() {
   local dir="$1"

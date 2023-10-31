@@ -23,8 +23,8 @@ jobs:
     - name: Compile LaTeX files
       working-directory: ${{ github.workspace }}/TexFiles
       run: |
-        source_folder="./TexFiles"  # Update with your source folder
-        destination_folder="pdf_generated"  # Update with your destination folder
+        source_folder="./"  # Update with your source folder
+        destination_folder="./pdf_generated"  # Update with your destination folder
 
         mkdir -p $destination_folder
 

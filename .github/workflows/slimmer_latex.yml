@@ -19,14 +19,24 @@ jobs:
         uses: jitterbit/get-changed-files@v1
         with:
           format: 'space-delimited'
-      - name: Compile LaTeX document(s)
+      - name: Extract path
+        id: path
+        run: |
+          FILES="${{ steps.files.outputs.added_modified }}"
+          echo "FILE_PATH=$(dirname "$files")" >> $GITHUB_OUTPUT
+      - name: Extract name
+        id: name
+        run: |
+          FILES="${{ steps.files.outputs.added_modified }}"
+          echo "FILE_PATH=${FILES&&.*}" >> $GITHUB_OUTPUT
+      - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
           root_file: |
             ${{ steps.files.outputs.added_modified }}
-          #working_directory: ${{ github.workspace }}/TexFiles
-      - name: Upload PDF file(s)
+          working_directory: ${{ steps.version.outputs.FILE_PATH }}
+      - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
           name: PDF
-          path: ${{ github.workspace }}/TexFiles/main.pdf
+          path: ${{ steps.path.outputs.FILE_PATH }}/${{ steps.name.outputs.FILE_NAME }}.pdf

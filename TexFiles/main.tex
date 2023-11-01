@@ -1,0 +1,158 @@
+\documentclass[a4paper, twoside]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{caption}
+%------------------------
+\title{\Huge Analisi dei rischi}
+\author{Error\_418}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\setlength {\marginparwidth }{2cm}
+%%page number
+\pagestyle{plain}
+%---------------
+\begin{document}
+\sffamily
+\begin{titlepage}
+%----------------------------------------------------------------------------------------
+%	LOGO SECTION
+%----------------------------------------------------------------------------------------
+\centering
+\includegraphics[width=8cm]{logo.png}\\[1.5cm]
+%----------------------------------------------------------------------------------------
+\center % Center everything on the page
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+\textsf{\Large ERROR\_418}\\[0.5cm]
+\textsf{\Large DOCUMENTAZIONE PROGETTO}\\[0.5cm]
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+\makeatletter
+\HRule \\[0.4cm]
+{ \huge \bfseries \@title}\\[0.4cm]
+\HRule \\[1.5cm]
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{center} % Centro delle sezioni Redattore e Validatori
+    \Large
+    \setlength{\extrarowheight}{9pt}
+    \raggedright
+    \begin{tabularx}{0.9\textwidth} [right] {
+            >{\raggedright\arraybackslash}X
+            >{\raggedright\arraybackslash}X
+        }
+        Mail:           & error418swe@gmail.com                              \\
+        Redattori:      & Antonio Oseliero, Alessio Banzato                  \\
+        Verificatori:   & Riccardo Carraro, Giovanni Gardin, Rosario Zaccone \\
+        Amministratori: & Silvio Nardo, Mattia Todesco                       \\
+        Destinatari:    & T. Vardanega, R. Cardin
+    \end{tabularx}
+\end{center}
+
+\vfill % Fill the rest of the page with whitespace
+\end{titlepage}
+\large
+
+\newpage % Vai alla pagina successiva
+
+
+%%%%%%%%%%%%%%% SEZIONE CONTENUTO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Analisi dei rischi}
+
+A ciascun rischio individuato si associano:
+\begin{itemize}
+    \item Impatto: può essere lieve, medio, grave. Esprime l'effetto generato dall'evento;
+    \item Probabilità: da 1 a 5. Esprime la probabilità del verificarsi del rischio;
+    \item Conseguenze: effetti collaterali a breve o medio termine che il rischio può comportare.
+\end{itemize}
+
+\section{Rischi}
+
+\subsection{Comunicazione con il proponente}
+
+I contatti con il proponente potrebbero subire variazioni nella qualità e nella frequenza a causa di problematiche fuori dal controllo del gruppo. Questa situazione potrebbe causare un rallentamento significativo del lavoro, soprattutto durante l'analisi dei requisiti.
+\begin{itemize}
+    \item Impatto: grave;
+
+    \item Probabilità: 1;
+
+    \item Conseguenze: lo sviluppo potrebbe allontanarsi dalle linee guida o dalle aspettative del proponente, non rispettando quanto preventivato o pianificato. Tale rischio, comporterebbe dunque la produzione di un software non in linea con le richieste conducendo a perdite di tempo per analisi, progettazione e implementazione aggiuntive;
+
+    \item Mitigazione:
+        \begin{itemize}
+            \item Pianificazione anticipata degli incontri di revisione dell'avanzamento;
+            \item Uso di strumenti asincroni per facilitare lo scambio di informazioni tra gruppo e proponente;
+            \item Programmazione di incontri periodici di aggiornamento, anche brevi.
+        \end{itemize}
+\end{itemize}
+
+\subsection{"Effetto sottomarino"}
+
+Uno o più membri potrebbero, per motivi diversi, cessare la partecipazione attiva alle attività del gruppo. È necessario evitare che la durata di queste assenze impedisca il regolare svolgimento delle attività di progetto.
+
+\begin{itemize}
+    \item Impatto: medio;
+
+    \item Probabilità: 3;
+
+    \item Conseguenze: i partecipanti che si dovessero trovare in questa situazione rischierebbero di accentuare eventuali incomprensioni nel proprio lavoro senza la possibilità di confrontarsi con gli altri accorgendosi degli errori troppo tardi;
+
+    \item Mitigazione:
+        \begin{itemize}
+            \item Mantenimento di un dialogo costante sulle problematiche interne al gruppo;
+            \item Segnalazione responsabile e preventiva di difficoltà o impedimenti da parte dei singoli membri.
+        \end{itemize}
+\end{itemize}
+
+
+\subsection{Rallentamento delle attività}
+Tra le difficoltà principali durante lo sviluppo del progetto è la congiunzione tra gli impegni individuali e progettuali. Tale rischio può comportare un rallentamento nel completamento di attività e task assegnate comportando un generale ritardo nello sviluppo.
+
+\begin{itemize}
+    \item Impatto: grave;
+
+    \item Probabilità: 4 (\textit{Probabilità aumentata nel periodo della sessione invernale});
+
+    \item Conseguenze: attività non svolte o completate parzialmente determinerebbero uno slittamento della data di consegna e delle scadenze intermedie;
+    \item Mitigazione:
+        \begin{itemize}
+            \item Organizzazione e suddivisione del monte ore con occhio di riguardo a precise date e scadenze;
+            \item Incontri e comunicazione costante con i membri del gruppo al fine di rendere note eventuali indisponibilità o impegni;
+            \item Uso di strumenti asincroni al fine di permettere a tutti i membri un'equa divisione del lavoro da svolgere nei momenti a loro più comodi, a patto di rispettare le linee guida del Way Of Working.
+        \end{itemize}
+\end{itemize}
+
+
+\subsection{Utilizzo delle tecnologie}
+
+Le tecnologie individuate o suggerite durante i processi di analisi e progettazione potrebbero risultare complesse da comprendere e/o integrare.
+
+\begin{itemize}
+    \item Impatto: medio;
+
+    \item Probabilità: 4;
+
+    \item Conseguenze: rallentamenti non preventivati che possono avere conseguenze a cascata sulle attività dipendenti;
+    \item Mitigazione:
+        \begin{itemize}
+            \item Accurata pianificazione e stesura delle norme di progetto e Way Of Working;
+            \item Assicurarsi che ad ogni membro del gruppo sia chiaro il funzionamento delle tecnologie e delle norme concordate.
+        \end{itemize}
+\end{itemize}
+
+\end{document}

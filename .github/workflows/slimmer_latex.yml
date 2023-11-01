@@ -37,7 +37,7 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: |
-            ${{ steps.files.outputs.added_modified }}
+            ${{ steps.name.outputs.FILE_NAME }}.tex
           working_directory: ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}
       - name: Upload PDF file
         uses: actions/upload-artifact@v3

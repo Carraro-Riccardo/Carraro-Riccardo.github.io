@@ -29,6 +29,10 @@ jobs:
         run: |
           FILES="${{ steps.files.outputs.added_modified }}"
           echo "FILE_NAME=$(basename "${FILES}" .tex)" >> $GITHUB_OUTPUT
+      - name: Output
+        run: |
+          echo "Path: ${{ steps.path.outputs.FILE_PATH }}"
+          echo "File: ${{ steps.path.outputs.FILE_NAME }}"
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:

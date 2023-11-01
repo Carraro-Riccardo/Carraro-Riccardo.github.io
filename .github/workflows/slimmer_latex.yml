@@ -19,20 +19,15 @@ jobs:
         uses: jitterbit/get-changed-files@v1
         with:
           format: 'space-delimited'
-      - name: Filter files
-        id: filter
-        run: |
-          FILTERED_LIST=$(echo "${{ steps.files.outputs.added_modified }}" | tr ' ' '\n' | grep '\.tex$' | tr '\n' ' ')
-          echo "FILTERED_FILES=$($FILTERED_LIST)" >> $GITHUB_OUTPUT
       - name: Extract path
         id: path
         run: |
-          FILES="${{ steps.filter.outputs.FILTERED_FILES }}"
+          FILES="${{ steps.files.outputs.added_modified }}"
           echo "FILE_PATH=$(dirname "$FILES")" >> $GITHUB_OUTPUT
       - name: Extract name w/o extension
         id: name
         run: |
-          FILES="${{ steps.filter.outputs.FILTERED_FILES }}"
+          FILES="${{ steps.files.outputs.added_modified }}"
           echo "FILE_NAME=$(basename "${FILES}" .tex)" >> $GITHUB_OUTPUT
       - name: Output
         run: |

@@ -32,13 +32,13 @@ jobs:
       - name: Output
         run: |
           echo "Path: ${{ steps.path.outputs.FILE_PATH }}"
-          echo "File: ${{ steps.path.outputs.FILE_NAME }}"
+          echo "File: ${{ steps.name.outputs.FILE_NAME }}"
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
           root_file: |
             ${{ steps.files.outputs.added_modified }}
-          working_directory: ${{ github.workspace }}/${{ steps.version.outputs.FILE_PATH }}
+          working_directory: ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:

@@ -14,23 +14,18 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
-      - name: Get changed files
+      - name: List changed files
         id: files
         uses: jitterbit/get-changed-files@v1
         with:
           format: 'space-delimited'
-      - run: |
-          for changed_file in ${{ steps.files.outputs.all }}; do
-            echo "${changed_file} changed."
-            echo "${{ steps.files.outputs.all }};"
-          done
-      - name: Compile LaTeX document
+      - name: Compile LaTeX document(s)
         uses: xu-cheng/latex-action@v3
         with:
           root_file: |
             ${{ steps.files.outputs.added_modified }}
           #working_directory: ${{ github.workspace }}/TexFiles
-      - name: Upload PDF file
+      - name: Upload PDF file(s)
         uses: actions/upload-artifact@v3
         with:
           name: PDF

@@ -24,11 +24,11 @@ jobs:
         run: |
           FILES="${{ steps.files.outputs.added_modified }}"
           echo "FILE_PATH=$(dirname "$FILES")" >> $GITHUB_OUTPUT
-      - name: Extract name
+      - name: Extract name w/o extension
         id: name
         run: |
           FILES="${{ steps.files.outputs.added_modified }}"
-          echo "FILE_PATH=${FILES&&.*}" >> $GITHUB_OUTPUT
+          echo "FILE_PATH=$("${FILES%.*}")" >> $GITHUB_OUTPUT
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:

@@ -31,6 +31,7 @@ jobs:
           echo "FILE_NAME=$(basename "${FILES}" .tex)" >> $GITHUB_OUTPUT
       - name: Output
         run: |
+          echo "Path: ${{ steps.files.outputs.added_modified }}"
           echo "Path: ${{ steps.path.outputs.FILE_PATH }}"
           echo "File: ${{ steps.name.outputs.FILE_NAME }}"
       - name: Compile LaTeX document

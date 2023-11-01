@@ -6,6 +6,11 @@ on:
     types: [opened, reopened, synchronize]
     paths:
       - '**.tex'
+  push:
+    branches:
+      - 'main'
+    paths:
+      - '**.yml'
 
 jobs:
   compile-latex:

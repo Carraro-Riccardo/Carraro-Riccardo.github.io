@@ -1,9 +1,11 @@
-name: Slimemr LaTeX compiler
+name: Slimmer LaTeX compiler
 
 on:
-  push:
-    branches:
-      - main
+  #triggered when PR is (re)opened or synchronized (new commit to head)
+  pull_request:
+    types: [opened, reopened, synchronize]
+    paths:
+      - '**.tex'
 
 jobs:
   compile-latex:

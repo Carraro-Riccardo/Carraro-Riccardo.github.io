@@ -1,0 +1,118 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[italian, english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{xurl}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}\usepackage{multirow}
+\usepackage{comment}
+\usepackage{tabularx}
+\usepackage{multirow}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+%=====================INIZIO DOCUMENTO=====================
+\begin{document}
+
+%%%%%%%%%%%%%%%% header %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent\begin{minipage}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{logo.png}
+\end{minipage}%
+\hfill%
+\begin{minipage}{0.6\textwidth}\raggedright
+    \huge
+    ERROR\_418\\
+    Verbale 26/10/23
+\end{minipage}
+
+%%%%%%%%%%%%%%%% Sezione informativa %%%%%%%%%%%%%%%%%%
+\large
+\setlength{\extrarowheight}{9pt}
+\raggedright
+\begin{tabularx}{0.9\textwidth} [right] {
+        >{\raggedright\arraybackslash}X
+        >{\raggedright\arraybackslash}X
+    }
+    Mail:           & error418swe@gmail.com                              \\
+    Redattori:      & Antonio Oseliero, Alessio Banzato                  \\
+    Verificatori:   & Riccardo Carraro, Giovanni Gardin, Rosario Zaccone \\
+    Amministratori: & Silvio Nardo, Mattia Todesco                       \\
+    Referente aziendale: & Matteo Bassani (Sanmarco Informatica) \\
+    Destinatari:    & T. Vardanega, R. Cardin
+\end{tabularx}
+%%%%%%%%%%%%%%%%%%%%%% Presenze %%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{3mm}
+\hline
+\raggedright
+\begin{tabular}{c c}
+    \multicolumn{2}{c}{Inizio Meeting: 18:00 \hspace{4mm}
+    Fine Meeting: 18:20 \hspace{4mm} Durata: 20min} \\
+    Presenze: &                                    \\
+\end{tabular}
+
+\begin{center}
+    \begin{tabular}{ |c|c|c|c|c| }
+        \hline
+        Nome     & Durata Presenza &  & Nome     & Durata Presenza \\
+        \hline
+        Antonio  & 20min       &  & Alessio  & 20min           \\
+        \hline
+        Riccardo & 20min       &  & Giovanni & 20min           \\
+        \hline
+        Rosario  & /           &  & Silvio   & 20min           \\
+        \hline
+        Mattia   & 20min       &  & &                 \\
+        \hline
+    \end{tabular}
+
+\end{center}
+
+\newpage
+
+\section{Ordine del giorno}
+
+\begin{itemize}
+    \item primo contatto con Matteo Bassani, rappresentante dell'azienda proponente Sanmarco Informatica e nostro referente per il capitolato C5;
+    \item richiesta di precisazioni tecniche sui requisiti del capitolato.
+\end{itemize}
+
+\section{Chiarimenti sul capitolato C5}
+Dopo esserci presentati abbiamo chiesto maggiori informazioni all'azienda Sanmarco Informatica riguardo ai nostri dubbi sul capitolato C5: Warehouse management 3D (WMS3).
+Di seguito sono riportati i temi trattati.
+
+\paragraph{Notifiche}
+Abbiamo chiarito che, quando si parla di notifiche di trasferimento, si intende l'invio di una notifica tramite REST API.
+
+\paragraph{Scaffali e bin}
+Gli scaffali sono divisi in ripiani e i ripiani sono a loro volta suddivisi in bin. In uno stesso scaffale possono coesistere bin di dimensioni diverse (su ripiani diversi). I bin dello stesso ripiano hanno dimensioni uguali. I bin sono aree generiche dove gli articoli possono essere posizionati (sul pavimento, sui veicoli, sugli scaffali, ...); tuttavia, per soddisfare le richieste minime è sufficiente lavorare con bin posizionati su scaffali.
+
+\paragraph{Controlli di sicurezza}
+Controllare se un articolo sia compatibile con un bin (per posizione o per articoli limitrofi) o meno è una feature interessante ma non richiesta dal capitolato.
+
+\paragraph{Persistenza dei dati}
+Il programma dovrà precaricare una disposizione di scaffali e articoli da un database relazionale. Non è necessario che il programma offra la persistenza dei dati: ad ogni nuova esecuzione, il programma riparte dallo stato iniziale predefinito. I DBMS consigliati per la gestione del database sono di tipo relazionale: PostgreSQL, MariaDB, MySQL e SQL Server.
+
+\paragraph{Movimentazione scaffali nello spazio 3D} La possibilità di creare, modificare e spostare gli scaffali manualmente nello spazio 3D è una feature utile che va oltre le richieste minime. Si tratta di funzionalità supplementari, poiché non è richiesto che lo stato del magazzino venga salvato in memoria.
+
+\section{Altri argomenti affrontati}
+
+\paragraph{Frequenza dei meeting}
+Abbiamo chiarito quale possa essere la frequenza dei meeting tra fornitore e proponente. È emerso che i meeting dovranno avere almeno cadenza mensile, ma sarà certamente possibile chiedere colloqui più frequenti. Il referente si è inoltre reso disponibile per rispondere a qualsiasi esigenza tramite posta elettronica.
+
+\paragraph{Pareri ed opinioni}
+La riunione si è conclusa con una veloce discussione dei motivi che ci hanno spinto a valutare il capitolato C5 come prima scelta. In maniera unanime, abbiamo concordato che lavorare su un progetto 3D è molto stimolante. Inoltre, si tratta di un'interessante evoluzione dei software logistici attuali, e per questo crediamo nella sua utilità.
+
+\newpage
+
+\begin{tabular}{@{}p{.5in}p{4in}@{}}
+\small{Approvato:} & \hspace{0.3cm} \hrulefill \\
+&  \hspace{0.3cm} \small{Matteo Bassani, Sanmarco Informatica}\\
+\end{tabular}
+
+\end{document}

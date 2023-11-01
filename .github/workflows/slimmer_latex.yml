@@ -23,7 +23,7 @@ jobs:
         id: path
         run: |
           FILES="${{ steps.files.outputs.added_modified }}"
-          echo "FILE_PATH=$(dirname "$files")" >> $GITHUB_OUTPUT
+          echo "FILE_PATH=$(dirname "$FILES")" >> $GITHUB_OUTPUT
       - name: Extract name
         id: name
         run: |

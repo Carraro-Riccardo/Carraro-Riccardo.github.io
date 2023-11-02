@@ -2,6 +2,8 @@ name: LaTeX Compilation
 
 on:
   push:
+    paths:
+    - './TexFiles/**'
     branches:
       - main
 

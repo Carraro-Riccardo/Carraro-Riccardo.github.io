@@ -24,7 +24,7 @@ jobs:
         source_folder="./"  # Update with your source folder
         destination_folder="./pdf_generated"  # Update with your destination folder
 
-        mkdir -p $destination_folder
+        mkdir -p ./TexFiles/$destination_folder
 
         for file in $source_folder/*.tex; do
           pdflatex -output-directory=$destination_folder $file

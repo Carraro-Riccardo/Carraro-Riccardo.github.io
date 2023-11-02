@@ -1,9 +1,9 @@
-name: Update Candidatura
+name: Update PB
 
 on:
   push:
     paths:
-      - './_pages/docs/PB/**'
+      - '_pages/docs/PB/**'
     branches:
       - main
 

@@ -1,9 +1,9 @@
-name: Update Candidatura
+name: Update RTB
 
 on:
   push:
     paths:
-      - './_pages/docs/RTB/**'
+      - '_pages/docs/RTB/**'
     branches:
       - main
 

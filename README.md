@@ -3,7 +3,7 @@ Benvenuti alla pagina principale del Gruppo Error_418. Siamo un insieme di stude
 
 <p align="center">
   <b>Documentazione</b> <br>
-  <a href="./_pages/candidatura.md">Proposta di Progetto</a> |
-  <a href="./_pages/RTB.md">Requisiti Tecnici di Base</a> |
-  <a href="./_pages/PB.md">Piano di Progetto</a>
+  <a href="./_pages/candidatura.md">Candidatura</a> |
+  <a href="./_pages/RTB.md">Analisi Requisiti e Tecnologie</a> |
+  <a href="./_pages/PB.md">Product Baseline</a>
 </p>

@@ -15,10 +15,8 @@ jobs:
 
     - name: Install TeX Live
       run: |
-        sudo apt-get update
         sudo apt-get install texlive-xetex
         sudo apt-get install texlive-fonts-recommended
-        sudo apt-get install texlive-fonts-extra
 
     - name: Compile LaTeX files
       working-directory: ${{ github.workspace }}/TexFiles

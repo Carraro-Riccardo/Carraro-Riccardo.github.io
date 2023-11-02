@@ -34,8 +34,11 @@ jobs:
       run: |
         ls -l ./TexFiles/pdf_generated  # List the generated PDFs in the destination folder
 
-    - name: Upload PDF artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: generated-pdfs
-        path: ./TexFiles/pdf_generated/*.pdf
+    - name: Commit and push PDF files
+      run: |
+        git config --global user.name 'GitHub Actions'
+        git config --global user.email 'actions@github.com'
+        git add ./TexFiles/pdf_generated/*.pdf
+        git commit -m "Add generated PDF files"
+        git push
+

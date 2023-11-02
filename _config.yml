@@ -1,8 +1,8 @@
 remote_theme: jekyll/minima
 title: Error_418
 
-theme: 
-  - dark
+minima:
+  skin: dark
 
 include:
   - _pages

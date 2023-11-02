@@ -29,6 +29,7 @@ echo "---" >> "../$markdown_file"
 echo "layout: default" >> "../$markdown_file"
 echo "title: Candidatura" >> "../$markdown_file"
 echo "---" >> "../$markdown_file"
+echo "### Presentazione e Candidatura"
 
 
 # Funzione ricorsiva per aggiungere il nome delle sottocartelle e il loro contenuto

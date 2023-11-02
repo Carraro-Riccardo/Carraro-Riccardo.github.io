@@ -2,6 +2,8 @@ name: Update Candidatura
 
 on:
   push:
+    paths:
+      - 'candidatura/**'
     branches:
       - main
 

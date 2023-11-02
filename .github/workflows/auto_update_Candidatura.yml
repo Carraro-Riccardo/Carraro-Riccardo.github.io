@@ -24,14 +24,3 @@ jobs:
       run: |
         chmod a+x ./bash_scripts/update_candidatura.sh
         ./bash_scripts/update_candidatura.sh
-
-    - name: Generate RTB Markdown Links 
-      run: |
-        chmod a+x ./bash_scripts/update_rtb.sh
-        ./bash_scripts/update_rtb.sh
-
-    - name: Generate RB Markdown Links 
-      run: |
-        chmod a+x ./bash_scripts/update_pb.sh
-        ./bash_scripts/update_pb.sh
-        

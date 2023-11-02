@@ -3,7 +3,7 @@ name: LaTeX Compilation
 on:
   push:
     paths:
-    - './TexFiles/**'
+    - 'TexFiles/**'
     branches:
       - main
 

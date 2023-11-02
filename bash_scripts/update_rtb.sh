@@ -9,8 +9,9 @@ cd "$folder_path" || exit
 
 echo "---" >> "../$markdown_file"
 echo "layout: default" >> "../$markdown_file"
-echo "title: Requirements and Technologies Baseline" >> "../$markdown_file"
+echo "title: RTB" >> "../$markdown_file"
 echo "---" >> "../$markdown_file"
+echo "### Requirments and Technologies Baselines"
 
 # Funzione ricorsiva per aggiungere il nome delle sottocartelle e il loro contenuto
 function add_folder_contents {

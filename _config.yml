@@ -4,6 +4,8 @@ title: Error_418
 minima:
   skin: dark
 
+logo: "./logo.png"
+
 include:
   - _pages
   

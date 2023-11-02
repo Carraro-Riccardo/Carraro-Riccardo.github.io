@@ -3,7 +3,7 @@ name: Update Candidatura
 on:
   push:
     paths:
-      - 'candidatura/**'
+      - './_pages/docs/Candidatura/**'
     branches:
       - main
 

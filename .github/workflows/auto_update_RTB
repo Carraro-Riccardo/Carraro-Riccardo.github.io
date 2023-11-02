@@ -1,0 +1,27 @@
+name: Update Candidatura
+
+on:
+  push:
+    paths:
+      - 'candidatura/**'
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up VM
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Generate RTB Markdown Links 
+      run: |
+        chmod a+x ./bash_scripts/update_rtb.sh
+        ./bash_scripts/update_rtb.sh
+        

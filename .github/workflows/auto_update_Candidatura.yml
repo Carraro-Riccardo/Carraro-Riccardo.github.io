@@ -1,9 +1,10 @@
 name: Update Candidatura
 
 on:
-  push:
-    branches:
-      - '*'
+  workflow_run:
+      workflows: ["notify_adding_candidatura"]
+      types: 
+        - completed
 
 jobs:
   build:

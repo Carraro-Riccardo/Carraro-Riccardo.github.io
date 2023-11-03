@@ -19,7 +19,7 @@
 git branch
 git clone -b side-docs 'https://github.com/Carraro-Riccardo/Carraro-Riccardo.github.io' --bare
 git branch
-cd ./Carraro-Riccardo.github.io
+cd ./Carraro-Riccardo.github.io.git
 dir
 folder_path="./1 - Candidatura/"
 markdown_file="candidatura.md"

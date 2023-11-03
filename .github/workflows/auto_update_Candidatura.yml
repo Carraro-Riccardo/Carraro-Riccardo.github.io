@@ -18,10 +18,6 @@ jobs:
 
     - name: list element
       run: dir
-
-    - name: cloining
-      run: | 
-        git clone 'https://Carraro-Riccardo:${{secrets.TOKEN_GH}}@github.com/Carraro-Riccardo/Carraro-Riccardo.github.io'
       
     - name: Generate Candidatura Markdown Links 
       run: |

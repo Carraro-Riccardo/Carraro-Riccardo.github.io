@@ -1,0 +1,14 @@
+name: Docs added in Candidatura
+
+on:
+  push:
+    branches:
+      - side-docs
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      run:  echo "Uploaded Completed"

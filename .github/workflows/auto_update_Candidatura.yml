@@ -21,8 +21,7 @@ jobs:
 
     - name: cloining
       run: | 
-        git clone 'https://github.com/Carraro-Riccardo/Carraro-Riccardo.github.io'
-        git remote set-url origin https://Carraro-Riccardo:${{secrets.TOKEN_GH}}@github.com/Carraro-Riccardo/Carraro-Riccardo.github.io
+        git clone 'https://Carraro-Riccardo:${{secrets.TOKEN_GH}}@github.com/Carraro-Riccardo/Carraro-Riccardo.github.io'
       
     - name: Generate Candidatura Markdown Links 
       run: |

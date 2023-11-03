@@ -51,7 +51,6 @@ git branch
 git checkout scripts-site-from-try-change-path
 git branch
 cd ..
-cd ..
 dir -l
 echo -e "$content_file" > "$markdown_file"
 echo "Echo dopo la CREAZIONE di $markdown_file"

@@ -6,6 +6,7 @@ on:
       - '1 - Candidatura/**'
     branches:
       - side-docs
+  workflow_dispatch:
 
 jobs:
   build:

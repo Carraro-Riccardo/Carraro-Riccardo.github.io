@@ -20,7 +20,6 @@ git branch
 git clone -b side-docs 'https://github.com/Carraro-Riccardo/Carraro-Riccardo.github.io'
 cd ./Carraro-Riccardo.github.io
 dir
-git remote -v
 folder_path="./1 - Candidatura/"
 markdown_file="candidatura.md"
 
@@ -57,4 +56,7 @@ echo "$content_file"
 echo -e "$content_file" > "$markdown_file"
 echo "ecco cosa ce dentro"
 cat "$markdown_file"
+mv "$markdown_file" "../"
+cd ..
+dir
 git branch

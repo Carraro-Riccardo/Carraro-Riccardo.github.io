@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - 'side-docs'
-    paths:
-      - '1 - Candidatura/**'
 
 jobs:
   build:

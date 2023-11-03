@@ -15,6 +15,9 @@
         #git add "../$markdown_file"
         #git commit -m "Update file links"
         #git push
+
+cd ./Carraro-Riccardo.github.io
+git checkout 'side-docs'
 folder_path="./1 - Candidatura/"
 markdown_file="candidatura.md"
 

@@ -6,7 +6,6 @@ on:
       - side-docs
     paths:
       - '1 - Candidatura/**'
-  workflow_dispatch:
 
 jobs:
   build:

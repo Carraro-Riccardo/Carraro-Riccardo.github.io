@@ -1,30 +1,7 @@
-        #folder_path="./docs/Candidatura/"
-        #markdown_file="prova.md"
-        
-        #cd "$folder_path" || exit
-        #> "../$markdown_file"
-        #echo "# Candidatura" >> "../$markdown_file"
-        #for file in *; do
-          #if [ -f "$file" ]; then
-            #echo "- [${file}](${folder_path}${file})" >> "../$markdown_file"
-          #fi
-        #done
-
-        #git config user.email "actions@github.com"
-        #git config user.name "GitHub Actions"
-        #git add "../$markdown_file"
-        #git commit -m "Update file links"
-        #git push
-
-git branch -a
-echo "Inizio"
 folder_path="./1 - Candidatura/"
 markdown_file="candidatura.md"
 
 cd "$folder_path" || exit
-
-# Inizializza il file Markdown con l'intestazione
-
 
 content_file="---\nlayout: default\ntitle: Candidatura\n---\n### Presentazione e Candidatura\n"
 
@@ -56,12 +33,8 @@ git pull origin scripts-site-from-try-change-path --allow-unrelated-histories
 git checkout scripts-site-from-try-change-path
 git branch
 cd ..
-dir -l
 echo -e "$content_file" > "$markdown_file"
-echo "Echo dopo la CREAZIONE di $markdown_file"
-dir -l
 
 git add "$markdown_file"
-git commit -m "Update file links"
-
+git commit -m "Update file $markdown_file"
 git push origin scripts-site-from-try-change-path 

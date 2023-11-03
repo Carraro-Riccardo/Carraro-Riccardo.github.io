@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: checkout debug
-      run: git checkout
+    - name: lista elementi
+      run: dir
       
     - name: Generate Candidatura Markdown Links 
       run: |

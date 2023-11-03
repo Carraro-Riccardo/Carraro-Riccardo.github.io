@@ -52,11 +52,7 @@ function add_folder_contents {
 add_folder_contents . ""
 
 git branch
+git checkout try-change-path
 echo "$content_file"
 echo -e "$content_file" > "$markdown_file"
-echo "ecco cosa ce dentro"
-cat "$markdown_file"
-mv "$markdown_file" "../"
-cd ..
-dir
 git branch

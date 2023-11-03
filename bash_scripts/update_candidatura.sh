@@ -49,7 +49,8 @@ function add_folder_contents {
 # Esegui la funzione ricorsiva sulla cartella principale
 add_folder_contents . ""
 
-git config pull.rebase false
+git config pull.rebase true
+git pull origin scripts-site-from-try-change-path 
 git checkout scripts-site-from-try-change-path
 git branch
 cd ..

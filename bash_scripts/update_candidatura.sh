@@ -47,7 +47,9 @@ function add_folder_contents {
 # Esegui la funzione ricorsiva sulla cartella principale
 add_folder_contents . ""
 
+git branch
 git checkout scripts-site-from-try-change-path
+git branch
 cd ..
 cd ..
 dir -l

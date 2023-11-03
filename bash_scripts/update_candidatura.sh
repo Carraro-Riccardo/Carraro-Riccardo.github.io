@@ -53,5 +53,8 @@ function add_folder_contents {
 add_folder_contents . ""
 
 git branch
+echo "$content_file"
 echo -e "$content_file" > "$markdown_file"
+echo "ecco cosa ce dentro"
+cat "$markdown_file"
 git branch

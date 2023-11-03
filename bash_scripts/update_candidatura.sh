@@ -16,6 +16,7 @@
         #git commit -m "Update file links"
         #git push
 
+git branch
 git clone -b side-docs 'https://github.com/Carraro-Riccardo/Carraro-Riccardo.github.io'
 cd ./Carraro-Riccardo.github.io
 dir

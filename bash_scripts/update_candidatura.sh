@@ -51,7 +51,7 @@ function add_folder_contents {
 add_folder_contents . ""
 
 git checkout try-change-path
-content_file > "$markdown_file"
+echo -e "$content_file" > "$markdown_file"
 
 # Esegui i comandi Git
 git config user.email "actions@github.com"

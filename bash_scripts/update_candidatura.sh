@@ -62,8 +62,4 @@ git config user.name "GitHub Actions"
 git add "$markdown_file"
 git commit -m "Update file links"
 
-cd ..
-cd ..
-dir
-
 git push origin try-change-path 

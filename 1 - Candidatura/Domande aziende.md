@@ -14,7 +14,7 @@
 1. La creazione e l'addrestramento dei modelli richiede normalmente un dataset ampio e HW prestante (soprattutto durante la fase training). Queste componenti, in che modo verrebbero fornite?
 2. Qual è il livello di complessità matematica del modello richiesto per soddisfare le richieste del capitolato?
 
-> Il capitolato verta sull'utilizzo di modelli di apprendimento al fine di creare un sistema di raccomandazione di prodotti ideale e mirato per ogni utente.
+> Il capitolato verta sull'utilizzo di modelli di apprendimento al fine di creare un sistema di raccomandazione di prodotti ideale e mirato per ogni utente. 
 
 
 ## C3 Easy Meal

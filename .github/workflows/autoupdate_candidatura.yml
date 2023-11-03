@@ -3,7 +3,9 @@ name: Update Candidatura
 on:
   push:
     branches:
-      - site-docs
+      - side-docs
+    paths: 
+      - '1 - Candidatura/**'
 
 jobs:
   build:

@@ -25,8 +25,8 @@ jobs:
         mv 'update_canidatura.sh' '../../'
         cd ../../ 
         dir
-        chmod a+x ./bash_scripts/update_candidatura.sh
-        ./bash_scripts/update_candidatura.sh
+        chmod a+x ./update_candidatura.sh
+        ./update_candidatura.sh
         
 
     - name: Checkout code

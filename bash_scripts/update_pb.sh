@@ -1,4 +1,4 @@
-site_branch="origin scripts-site-from-try-change-path"
+site_branch="scripts-site-from-try-change-path"
 folder_path="./3 - PB/"
 markdown_file="candidatura.md"
 
@@ -30,12 +30,12 @@ add_folder_contents . ""
 git config user.email "actions@github.com"
 git config user.name "GitHub Actions"
 git config pull.rebase false
-git pull origin scripts-site-from-try-change-path --allow-unrelated-histories
-git checkout scripts-site-from-try-change-path
-git branch
+git pull origin $site_branch --allow-unrelated-histories
+git checkout $site_branch
+
 cd ..
 echo -e "$content_file" > "$markdown_file"
 
 git add "$markdown_file"
 git commit -m "Update file $markdown_file"
-git push origin scripts-site-from-try-change-path 
+git push origin $site_branch 

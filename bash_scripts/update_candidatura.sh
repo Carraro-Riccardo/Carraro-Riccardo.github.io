@@ -61,4 +61,5 @@ git config user.name "GitHub Actions"
 git add "$markdown_file"
 git commit -m "Update file links"
 git pull origin try-change-path
+git config pull.rebase false
 git push -u origin try-change-path 

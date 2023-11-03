@@ -22,7 +22,7 @@ jobs:
       run: |
         git clone -b try-change-path --single-branch 'https://github.com/Carraro-Riccardo/Carraro-Riccardo.github.io'
         cd ./Carraro-Riccardo.github.io/bash_scripts
-        mv 'update_canidatura.sh' '../../'
+        mv 'update_candidatura.sh' '../../'
         cd ../../ 
         dir
         chmod a+x ./update_candidatura.sh

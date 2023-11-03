@@ -15,9 +15,9 @@
         #git add "../$markdown_file"
         #git commit -m "Update file links"
         #git push
+git checkout side-docs
 
-cd ./_pages
-folder_path="./docs/Candidatura/"
+folder_path="./1 - Candidatura/"
 markdown_file="candidatura.md"
 
 cd "$folder_path" || exit
@@ -53,10 +53,10 @@ function add_folder_contents {
 # Esegui la funzione ricorsiva sulla cartella principale
 add_folder_contents . ""
 
-mv "../$markdown_file" ../../
+#mv "../$markdown_file" ../../
 # Esegui i comandi Git
 git config user.email "actions@github.com"
 git config user.name "GitHub Actions"
-git add "../../$markdown_file"
+git add "../$markdown_file"
 git commit -m "Update file links"
-git push
+origin HEAD:try-change-path

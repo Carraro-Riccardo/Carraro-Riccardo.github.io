@@ -52,6 +52,7 @@ function add_folder_contents {
 # Esegui la funzione ricorsiva sulla cartella principale
 add_folder_contents . ""
 
+git checkout try-change-path
 echo -e "$content_file" > "$markdown_file"
 echo "Echo dopo la CREAZIONE di $markdown_file"
 dir

@@ -2,10 +2,10 @@ name: Update RTB
 
 on:
   push:
-    paths:
-      - '_pages/docs/RTB/**'
     branches:
-      - main
+      - site-docs
+    paths:
+      - '2 - RTB/**'
 
 jobs:
   build:
@@ -15,8 +15,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Generate RTB Markdown Links 
+    - name: Generate Candidatura Markdown Links 
       run: |
         chmod a+x ./bash_scripts/update_rtb.sh
         ./bash_scripts/update_rtb.sh
-        

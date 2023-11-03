@@ -57,10 +57,9 @@ echo -e "$content_file" > "$markdown_file"
 echo "Echo dopo la CREAZIONE di $markdown_file"
 dir
 
-mv "$markdown_file" "../../"
 git config user.email "actions@github.com"
 git config user.name "GitHub Actions"
-git add "../../$markdown_file"
+git add "$markdown_file"
 git commit -m "Update file links"
 
 cd ..

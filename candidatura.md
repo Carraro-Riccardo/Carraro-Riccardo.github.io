@@ -22,4 +22,5 @@ title: Candidatura
     - [26-10-23.pdf](./1 - Candidatura/Verbali/Interni/26-10-23.pdf)
     - [29-10-23.pdf](./1 - Candidatura/Verbali/Interni/29-10-23.pdf)
     - [30-10-23.pdf](./1 - Candidatura/Verbali/Interni/30-10-23.pdf)
+- [ciao.txt](./1 - Candidatura//ciao.txt)
 

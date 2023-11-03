@@ -48,6 +48,7 @@ function add_folder_contents {
 add_folder_contents . ""
 
 git branch
+git pull origin scripts-site-from-try-change-path
 git checkout scripts-site-from-try-change-path
 git branch
 cd ..

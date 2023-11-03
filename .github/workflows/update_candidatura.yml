@@ -21,6 +21,5 @@ jobs:
         cd ./Carraro-Riccardo.github.io/bash_scripts
         mv 'update_candidatura.sh' '../../'
         cd ../../ 
-        dir
         chmod a+x ./update_candidatura.sh
         ./update_candidatura.sh

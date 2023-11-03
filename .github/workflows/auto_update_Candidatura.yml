@@ -3,9 +3,9 @@ name: Update Candidatura
 on:
   push:
     paths:
-      - '_pages/docs/Candidatura/**'
+      - '1-Candidatura/**'
     branches:
-      - main
+      - side-docs
 
 jobs:
   build:

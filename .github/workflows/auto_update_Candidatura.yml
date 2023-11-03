@@ -23,3 +23,6 @@ jobs:
       run: |
         chmod a+x ./bash_scripts/update_candidatura.sh
         ./bash_scripts/update_candidatura.sh
+
+    - name: list element
+      run: dir

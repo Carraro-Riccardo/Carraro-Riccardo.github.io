@@ -18,6 +18,7 @@
 
 git clone 'https://github.com/Carraro-Riccardo/Carraro-Riccardo.github.io'
 cd ./Carraro-Riccardo.github.io
+dir
 folder_path="./1 - Candidatura/"
 markdown_file="candidatura.md"
 

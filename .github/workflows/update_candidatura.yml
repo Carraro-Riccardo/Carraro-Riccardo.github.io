@@ -14,9 +14,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-
-    - name: list element
-      run: dir
       
     - name: Generate Candidatura Markdown Links 
       run: |
@@ -27,10 +24,3 @@ jobs:
         dir
         chmod a+x ./update_candidatura.sh
         ./update_candidatura.sh
-        
-
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    - name: list element
-      run: dir

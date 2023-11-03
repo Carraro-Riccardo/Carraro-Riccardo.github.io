@@ -17,7 +17,7 @@
         #git push
 
 cd ./_pages
-folder_path="./1 - Candidatura"
+folder_path="./docs/Candidatura/"
 markdown_file="candidatura.md"
 
 cd "$folder_path" || exit

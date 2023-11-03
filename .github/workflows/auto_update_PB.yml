@@ -2,10 +2,10 @@ name: Update PB
 
 on:
   push:
-    paths:
-      - '_pages/docs/PB/**'
     branches:
-      - main
+      - site-docs
+    paths:
+      - '3 - PB/**'
 
 jobs:
   build:
@@ -15,8 +15,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Generate RB Markdown Links 
+    - name: Generate Candidatura Markdown Links 
       run: |
         chmod a+x ./bash_scripts/update_pb.sh
         ./bash_scripts/update_pb.sh
-        

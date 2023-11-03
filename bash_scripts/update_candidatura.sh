@@ -1,3 +1,4 @@
+site_branch="origin scripts-site-from-try-change-path"
 folder_path="./1 - Candidatura/"
 markdown_file="candidatura.md"
 
@@ -29,7 +30,7 @@ add_folder_contents . ""
 git config user.email "actions@github.com"
 git config user.name "GitHub Actions"
 git config pull.rebase false
-git pull origin scripts-site-from-try-change-path --allow-unrelated-histories
+git pull $site_branch --allow-unrelated-histories
 git checkout scripts-site-from-try-change-path
 git branch
 cd ..

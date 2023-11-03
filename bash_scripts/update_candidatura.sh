@@ -55,9 +55,9 @@ add_folder_contents . ""
 echo -e "$content_file" > "$markdown_file"
 dir
 
-git remote -v
 git config user.email "actions@github.com"
 git config user.name "GitHub Actions"
 git add "$markdown_file"
 git commit -m "Update file links"
+git pull origin try-change-path
 git push origin try-change-path 

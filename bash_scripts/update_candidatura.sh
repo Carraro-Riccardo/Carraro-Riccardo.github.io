@@ -16,7 +16,7 @@
         #git commit -m "Update file links"
         #git push
 
-git clone --no-checkout -b side-docs 'https://github.com/Carraro-Riccardo/Carraro-Riccardo.github.io'
+git clone -b side-docs 'https://github.com/Carraro-Riccardo/Carraro-Riccardo.github.io'
 cd ./Carraro-Riccardo.github.io
 dir
 folder_path="./1 - Candidatura/"
@@ -25,14 +25,9 @@ markdown_file="candidatura.md"
 cd "$folder_path" || exit
 
 # Inizializza il file Markdown con l'intestazione
-> "../$markdown_file"
 
-echo "---" >> "../$markdown_file"
-echo "layout: default" >> "../$markdown_file"
-echo "title: Candidatura" >> "../$markdown_file"
-echo "---" >> "../$markdown_file"
-echo "### Presentazione e Candidatura"
 
+content_file="---\nlayout: default\ntitle: Candidatura\n---\n### Presentazione e Candidatura\n"
 
 # Funzione ricorsiva per aggiungere il nome delle sottocartelle e il loro contenuto
 function add_folder_contents {
@@ -42,11 +37,11 @@ function add_folder_contents {
     if [ -f "$item" ]; then
       # Se è un file, aggiungi un link al file nel Markdown
       clear_folder_path=$(echo "$current_folder" | cut -c 3-)
-      echo "${indent}- [$(basename "$item")]($folder_path$clear_folder_path/$(basename "$item"))" >> "../$markdown_file"
+      content_file+="${indent}- [$(basename "$item")]($folder_path$clear_folder_path/$(basename "$item"))\n"
     elif [ -d "$item" ]; then
       # Se è una sottocartella, aggiungi il nome e poi chiamata ricorsiva
       folder_name=$(basename "$item")
-      echo "${indent}- **$folder_name**" >> "../$markdown_file"
+      content_file+="${indent}- **$folder_name**\n"
       add_folder_contents "$item" "  $indent" # Aggiungi uno spazio di indentazione
     fi
   done
@@ -55,10 +50,12 @@ function add_folder_contents {
 # Esegui la funzione ricorsiva sulla cartella principale
 add_folder_contents . ""
 
-#mv "../$markdown_file" ../../
+git checkout try-change-path
+content_file > "$markdown_file"
+
 # Esegui i comandi Git
 git config user.email "actions@github.com"
 git config user.name "GitHub Actions"
-git add "../$markdown_file"
+git add "$markdown_file"
 git commit -m "Update file links"
 git push

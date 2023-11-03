@@ -1,0 +1,30 @@
+name: Update Candidatura
+
+on:
+  push:
+    branches:
+      - site-docs
+    paths:
+      - '1 - Candidatura/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: list element
+      run: dir
+      
+    - name: Generate Candidatura Markdown Links 
+      run: |
+        chmod a+x ./bash_scripts/update_candidatura.sh
+        ./bash_scripts/update_candidatura.sh
+
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: list element
+      run: dir

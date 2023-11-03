@@ -18,6 +18,12 @@ jobs:
 
     - name: list element
       run: dir
+
+    - name: cloining
+      run: | 
+        git clone 'https://github.com/Carraro-Riccardo/Carraro-Riccardo.github.io'
+        cd ./Carraro-Riccardo.github.io
+        git checkout 'side-docs'
       
     - name: Generate Candidatura Markdown Links 
       run: |

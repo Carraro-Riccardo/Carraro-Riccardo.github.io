@@ -50,7 +50,7 @@ function add_folder_contents {
 add_folder_contents . ""
 
 git config pull.rebase false
-git pull origin scripts-site-from-try-change-path 
+git pull origin scripts-site-from-try-change-path --allow-unrelated-histories
 git checkout scripts-site-from-try-change-path
 git branch
 cd ..

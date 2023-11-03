@@ -20,7 +20,7 @@ jobs:
       
     - name: Generate Candidatura Markdown Links 
       run: |
-        git clone -b try-change-path --single-branch 'https://github.com/Carraro-Riccardo/Carraro-Riccardo.github.io'
+        git clone -b scripts-site-from-try-change-path --single-branch 'https://github.com/Carraro-Riccardo/Carraro-Riccardo.github.io'
         cd ./Carraro-Riccardo.github.io/bash_scripts
         mv 'update_candidatura.sh' '../../'
         cd ../../ 

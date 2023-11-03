@@ -17,7 +17,7 @@
         #git push
 
 git branch
-git clone -b side-docs 'https://github.com/Carraro-Riccardo/Carraro-Riccardo.github.io'
+git clone -b side-docs 'https://github.com/Carraro-Riccardo/Carraro-Riccardo.github.io' --bare
 cd ./Carraro-Riccardo.github.io
 dir
 folder_path="./1 - Candidatura/"

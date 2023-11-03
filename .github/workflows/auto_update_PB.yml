@@ -13,12 +13,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Set up VM
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
+      uses: actions/checkout@v4
 
     - name: Generate RB Markdown Links 
       run: |

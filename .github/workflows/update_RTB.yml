@@ -1,0 +1,25 @@
+name: Update Candidatura
+
+on:
+  push:
+    branches:
+      - side-docs-with-actions
+    paths:
+      - '2 - RTB/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Generate Candidatura Markdown Links 
+      run: |
+        git clone -b scripts-site-from-try-change-path 'https://github.com/Carraro-Riccardo/Carraro-Riccardo.github.io'
+        cd ./Carraro-Riccardo.github.io/bash_scripts
+        mv 'update_rtb.sh' '../../'
+        cd ../../ 
+        chmod a+x ./update_rtb.sh
+        ./update_rtb.sh

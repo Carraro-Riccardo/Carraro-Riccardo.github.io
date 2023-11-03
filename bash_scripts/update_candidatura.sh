@@ -16,7 +16,7 @@
         #git commit -m "Update file links"
         #git push
 
-git branch
+git branch -a
 echo "Inizio"
 folder_path="./1 - Candidatura/"
 markdown_file="candidatura.md"
@@ -49,7 +49,7 @@ function add_folder_contents {
 # Esegui la funzione ricorsiva sulla cartella principale
 add_folder_contents . ""
 
-git config pull.rebase true
+git config pull.rebase false
 git pull origin scripts-site-from-try-change-path 
 git checkout scripts-site-from-try-change-path
 git branch

@@ -15,7 +15,7 @@
         #git add "../$markdown_file"
         #git commit -m "Update file links"
         #git push
-git clone 'https://github.com/Carraro-Riccardo/Carraro-Riccardo.github.io'
+git clone git@github.com:Carraro-Riccardo/Carraro-Riccardo.github.io.git
 cd ./Carraro-Riccardo.github.io
 git checkout 'side-docs'
 

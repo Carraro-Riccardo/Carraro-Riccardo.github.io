@@ -36,7 +36,7 @@ git checkout $site_branch
 cd ..
 echo -e "$content_file" > "$markdown_file"
 dir
-mv "$markdown_file" "./Carraro-Riccardo.github.io/_pages/"
-git add "./Carraro-Riccardo.github.io/_pages/*"
+mv "$markdown_file" "./_pages/"
+git add "./_pages/$markdown_file"
 git commit -m "Update file $markdown_file"
 git push origin $site_branch

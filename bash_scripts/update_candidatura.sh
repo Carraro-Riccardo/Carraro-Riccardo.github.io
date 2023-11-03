@@ -37,12 +37,6 @@ cd ..
 echo -e "$content_file" > "$markdown_file"
 dir
 mv "$markdown_file" "./Carraro-Riccardo.github.io/_pages/"
-dir
-echo "spostiamoci dentro"
-cd "./Carraro-Riccardo.github.io/_pages/"
-dir
-git config user.email "actions@github.com"
-git config user.name "GitHub Actions"
-git add "$markdown_file"
+git add "./Carraro-Riccardo.github.io/_pages/*"
 git commit -m "Update file $markdown_file"
 git push origin $site_branch

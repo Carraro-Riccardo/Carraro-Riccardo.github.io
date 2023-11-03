@@ -3,7 +3,7 @@ name: Update Candidatura
 on:
   push:
     branches:
-      - side-docs
+      - '*'
 
 jobs:
   build:

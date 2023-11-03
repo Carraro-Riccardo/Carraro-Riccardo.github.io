@@ -66,4 +66,4 @@ cd ..
 dir
 
 git pull origin try-change-path
-git push -u origin try-change-path 
+git push origin try-change-path 

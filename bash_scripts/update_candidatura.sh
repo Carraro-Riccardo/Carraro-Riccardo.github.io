@@ -16,11 +16,8 @@
         #git commit -m "Update file links"
         #git push
 
-git branch
 git clone -b side-docs --single-branch 'https://github.com/Carraro-Riccardo/Carraro-Riccardo.github.io'
-git branch
 cd ./Carraro-Riccardo.github.io
-dir
 folder_path="./1 - Candidatura/"
 markdown_file="candidatura.md"
 
@@ -53,9 +50,10 @@ function add_folder_contents {
 add_folder_contents . ""
 
 git checkout try-change-path
+dir -l
 echo -e "$content_file" > "$markdown_file"
 echo "Echo dopo la CREAZIONE di $markdown_file"
-dir
+dir -l
 
 git config user.email "actions@github.com"
 git config user.name "GitHub Actions"

@@ -1,4 +1,4 @@
-name: Update Candidatura
+name: Update RTB
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       
-    - name: Generate Candidatura Markdown Links 
+    - name: Generate RTB Markdown Links 
       run: |
         git clone -b scripts-site-from-try-change-path 'https://github.com/Carraro-Riccardo/Carraro-Riccardo.github.io'
         cd ./Carraro-Riccardo.github.io/bash_scripts

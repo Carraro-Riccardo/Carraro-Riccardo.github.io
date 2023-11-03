@@ -16,8 +16,6 @@
         #git commit -m "Update file links"
         #git push
 
-git clone -b side-docs --single-branch 'https://github.com/Carraro-Riccardo/Carraro-Riccardo.github.io'
-cd ./Carraro-Riccardo.github.io
 folder_path="./1 - Candidatura/"
 markdown_file="candidatura.md"
 
@@ -49,7 +47,7 @@ function add_folder_contents {
 # Esegui la funzione ricorsiva sulla cartella principale
 add_folder_contents . ""
 
-git checkout try-change-path
+git checkout scripts-site-from-try-change-path
 cd ..
 cd ..
 dir -l
@@ -62,4 +60,4 @@ git config user.name "GitHub Actions"
 git add "$markdown_file"
 git commit -m "Update file links"
 
-git push origin try-change-path 
+git push origin scripts-site-from-try-change-path 

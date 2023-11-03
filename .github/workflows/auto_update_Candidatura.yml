@@ -13,11 +13,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      with:
-        ref: side-docs
-
     - name: Generate Candidatura Markdown Links 
       run: |
         chmod a+x ./bash_scripts/update_candidatura.sh

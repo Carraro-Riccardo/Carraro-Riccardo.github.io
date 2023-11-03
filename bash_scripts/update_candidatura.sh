@@ -52,9 +52,6 @@ function add_folder_contents {
 # Esegui la funzione ricorsiva sulla cartella principale
 add_folder_contents . ""
 
-git branch
-dir
-echo "$content_file"
 echo -e "$content_file" > "$markdown_file"
 dir
 
@@ -63,4 +60,4 @@ git config user.email "actions@github.com"
 git config user.name "GitHub Actions"
 git add "$markdown_file"
 git commit -m "Update file links"
-git push origin try-change-path -f
+git push origin try-change-path 

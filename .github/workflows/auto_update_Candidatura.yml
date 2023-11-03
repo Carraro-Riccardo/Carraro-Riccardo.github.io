@@ -2,10 +2,10 @@ name: Update Candidatura
 
 on:
   push:
-    paths:
-      - '1 - Candidatura/**'
     branches:
       - side-docs
+    paths:
+      - '1 - Candidatura/**'
   workflow_dispatch:
 
 jobs:

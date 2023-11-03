@@ -41,6 +41,8 @@ dir
 echo "spostiamoci dentro"
 cd "./Carraro-Riccardo.github.io/_pages/"
 dir
+git config user.email "actions@github.com"
+git config user.name "GitHub Actions"
 git add "$markdown_file"
 git commit -m "Update file $markdown_file"
 git push origin $site_branch

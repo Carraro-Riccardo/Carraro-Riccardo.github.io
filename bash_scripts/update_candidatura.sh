@@ -53,6 +53,5 @@ function add_folder_contents {
 add_folder_contents . ""
 
 git branch
-git checkout try-change-path
 echo -e "$content_file" > "$markdown_file"
 git branch

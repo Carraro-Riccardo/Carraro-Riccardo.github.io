@@ -30,7 +30,7 @@ add_folder_contents . ""
 git config user.email "actions@github.com"
 git config user.name "GitHub Actions"
 git config pull.rebase false
-git pull "$site_branch" --allow-unrelated-histories
+git pull origin "$site_branch" --allow-unrelated-histories
 git checkout "$site_branch"
 git branch
 cd ..

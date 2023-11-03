@@ -41,6 +41,6 @@ dir
 echo "spostiamoci dentro"
 cd "./Carraro-Riccardo.github.io/_pages/"
 dir
-git add "./Carraro-Riccardo.github.io/_pages/$markdown_file"
+git add "$markdown_file"
 git commit -m "Update file $markdown_file"
 git push origin $site_branch

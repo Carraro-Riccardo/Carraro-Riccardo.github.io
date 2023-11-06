@@ -25,16 +25,16 @@ jobs:
       - name: Extract path
         id: path
         run: |
-          FILES="${{ steps.files.outputs.added_modified }}"
+          FILES="${{ steps.files.outputs.all_changed_files }}"
           echo "FILE_PATH=$(dirname "$FILES")" >> $GITHUB_OUTPUT
       - name: Extract name w/o extension
         id: name
         run: |
-          FILES="${{ steps.files.outputs.added_modified }}"
+          FILES="${{ steps.files.outputs.all_changed_files }}"
           echo "FILE_NAME=$(basename "${FILES}" .tex)" >> $GITHUB_OUTPUT
       - name: Output
         run: |
-          echo "::notice::Modified files: ${{ steps.files.outputs.added_modified }}"
+          echo "::notice::Modified files: ${{ steps.files.outputs.all_changed_files }}"
           echo "::notice::Path: ${{ steps.path.outputs.FILE_PATH }}"
           echo "::notice::File: ${{ steps.name.outputs.FILE_NAME }}"
       - name: Compile LaTeX document

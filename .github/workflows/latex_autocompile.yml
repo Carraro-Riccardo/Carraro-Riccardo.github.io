@@ -46,7 +46,7 @@ jobs:
       - name: Publish artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ steps.path.outputs.FILE_NAME }}.pdf
+          name: ${{ steps.name.outputs.FILE_NAME }}.pdf
           path: ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/${{ steps.name.outputs.FILE_NAME }}.pdf
           if-no-files-found: error
 

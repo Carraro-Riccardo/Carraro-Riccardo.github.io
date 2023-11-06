@@ -80,8 +80,8 @@ jobs:
           TARGET_BRANCH: 'docs'
         run: |
           git checkout $TARGET_BRANCH
-          rm ${{ github.workspace }}/test.pdf
-          git rm ${{ github.workspace }}/test.pdf
+          rm -f /test.pdf
+          git rm --ignore-unmatch /test.pdf
           git checkout ${GITHUB_HEAD_REF##*/}
           git add ${{ github.workspace }}/test.pdf
           git diff-index --quiet HEAD || git commit -am "Deploy documents"

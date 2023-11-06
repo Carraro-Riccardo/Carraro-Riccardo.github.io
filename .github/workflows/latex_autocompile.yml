@@ -22,8 +22,6 @@ jobs:
         uses: tj-actions/changed-files@v40
         with:
           format: 'space-delimited'
-          files: |
-            **.tex
       - name: Extract path
         id: path
         run: |

@@ -50,9 +50,6 @@ jobs:
           name: ${{ steps.name.outputs.FILE_NAME }}.pdf
           path: ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/${{ steps.name.outputs.FILE_NAME }}.pdf
           if-no-files-found: error
-      - name: Share artifact
-        run: |
-          cp ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/${{ steps.name.outputs.FILE_NAME }}.pdf $GITHUB_WORKSPACE
 
   publish:
     #if: github.event.pull_request.merged == true

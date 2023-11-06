@@ -38,12 +38,15 @@ jobs:
           echo "::notice::Modified files: ${{ steps.files.outputs.added_modified }}"
           echo "::notice::Path: ${{ steps.path.outputs.FILE_PATH }}"
           echo "::notice::File: ${{ steps.name.outputs.FILE_NAME }}"
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: |
-            ${{ steps.name.outputs.FILE_NAME }}.tex
-          working_directory: ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}
+      - name: Create mock PDF
+        run: |
+          touch ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/${{ steps.name.outputs.FILE_NAME }}.pdf
+      #- name: Compile LaTeX document
+      #  uses: xu-cheng/latex-action@v3
+      #  with:
+      #    root_file: |
+      #      ${{ steps.name.outputs.FILE_NAME }}.tex
+      #    working_directory: ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}
       - name: Publish artifact
         uses: actions/upload-artifact@v3
         with:

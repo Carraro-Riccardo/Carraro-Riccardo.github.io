@@ -74,7 +74,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: ${{ needs.compile.outputs.file_name }}.pdf
-          path: ${{ needs.compile.outputs.file_path }}
+          path: ${{ github.workspace }}/${{ needs.compile.outputs.file_path }}
       - name: Publish document
         run: |
           git checkout ${GITHUB_HEAD_REF##*/}

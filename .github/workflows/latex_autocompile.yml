@@ -85,6 +85,6 @@ jobs:
           cd ./TexFiles
           dir -l
           cd ..
-          git add ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/${{ needs.compile.outputs.file_name }}.pdf
+          git add ${{ github.workspace }}/${{ needs.compile.outputs.file_path }}/${{ needs.compile.outputs.file_name }}.pdf
           git diff-index --quiet HEAD || git commit -am "Deploy documents"
           git push origin $TARGET_BRANCH

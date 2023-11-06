@@ -68,8 +68,11 @@ jobs:
       - name: Clean up
         run: |
           git checkout $TARGET_BRANCH
+          ls
           rm -f ${{ needs.compile.outputs.file_path }}/${{ needs.compile.outputs.file_name }}.pdf
+          ls
           git rm --ignore-unmatch ${{ needs.compile.outputs.file_path }}/${{ needs.compile.outputs.file_name }}.pdf
+          ls
       - name: Grab document
         uses: actions/download-artifact@v3
         with:
@@ -77,8 +80,11 @@ jobs:
           path: ${{ github.workspace }}/${{ needs.compile.outputs.file_path }}
       - name: Publish document
         run: |
-          git checkout ${GITHUB_HEAD_REF##*/}
+          ls
+          ls ${{ needs.compile.outputs.file_path }}
+          ls ${{ github.workspace }}/${{ needs.compile.outputs.file_path }}
           git add ${{ needs.compile.outputs.file_path }}/${{ needs.compile.outputs.file_name }}.pdf
           git commit -am "Deploy documents"
           git push origin $TARGET_BRANCH
+        #  git checkout ${GITHUB_HEAD_REF##*/}
         #git diff-index --quiet HEAD || git commit -am "Deploy documents"

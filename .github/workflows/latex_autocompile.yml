@@ -12,8 +12,8 @@ jobs:
   compile:
     runs-on: ubuntu-latest
     outputs:
-      file_path: ${{ steps.path.outputs.FILE_PATH }}
-      file_name: ${{ steps.name.outputs.FILE_NAME }}
+      file_path: '${{ steps.path.outputs.FILE_PATH }}'
+      file_name: '${{ steps.name.outputs.FILE_NAME }}'
 
     steps:
       - name: Set up Git repository

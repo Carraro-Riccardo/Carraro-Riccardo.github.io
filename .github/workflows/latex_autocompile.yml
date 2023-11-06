@@ -76,6 +76,7 @@ jobs:
           git checkout $TARGET_BRANCH
           ls
           rm -f /test.pdf
+          ls
           git rm --ignore-unmatch /test.pdf
           
       - name: Grab document

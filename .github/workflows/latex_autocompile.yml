@@ -58,6 +58,8 @@ jobs:
     #if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     needs: compile
+    env:
+      TARGET_BRANCH: 'docs'
 
     steps:
       - name: Set up Git repository
@@ -70,13 +72,9 @@ jobs:
           git fetch
 
       - name: Clean up
-        env:
-          TARGET_BRANCH: 'docs'
         run: |
           git checkout $TARGET_BRANCH
-          ls
           rm -f test.pdf
-          ls
           git rm --ignore-unmatch test.pdf
           
       - name: Grab document
@@ -85,8 +83,6 @@ jobs:
           name: test.pdf
 
       - name: Publish document
-        env:
-          TARGET_BRANCH: 'docs'
         run: |
           git checkout ${GITHUB_HEAD_REF##*/}
           git add test.pdf

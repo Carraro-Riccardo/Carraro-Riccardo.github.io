@@ -87,7 +87,7 @@ jobs:
       - name: Publish document
         env:
           TARGET_BRANCH: 'docs'
-        run: 
+        run: |
           git checkout ${GITHUB_HEAD_REF##*/}
           git add test.pdf
           git diff-index --quiet HEAD || git commit -am "Deploy documents"

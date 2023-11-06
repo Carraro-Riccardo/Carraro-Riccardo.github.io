@@ -1,46 +1,103 @@
-name: LaTeX Compilation
+name: LaTeX compiler
 
 on:
-  push:
+  #triggered when PR is (re)opened or synchronized (new commit to head)
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
     paths:
-    - 'TexFiles/**'
-    branches:
-      - main
+      - '**.tex'
 
 jobs:
-  compile-latex:
+  compile:
     runs-on: ubuntu-latest
+    outputs:
+      file_path: ${{ steps.path.outputs.FILE_PATH }}
+      file_name: ${{ steps.name.outputs.FILE_NAME }}
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+      - name: List changed files
+        id: files
+        uses: jitterbit/get-changed-files@v1
+        with:
+          format: 'space-delimited'
+      - name: Extract path
+        id: path
+        run: |
+          FILES="${{ steps.files.outputs.added_modified }}"
+          echo "FILE_PATH=$(dirname "$FILES")" >> $GITHUB_OUTPUT
+      - name: Extract name w/o extension
+        id: name
+        run: |
+          FILES="${{ steps.files.outputs.added_modified }}"
+          echo "FILE_NAME=$(basename "${FILES}" .tex)" >> $GITHUB_OUTPUT
+      - name: Output
+        run: |
+          echo "::notice::Modified files: ${{ steps.files.outputs.added_modified }}"
+          echo "::notice::Path: ${{ steps.path.outputs.FILE_PATH }}"
+          echo "::notice::File: ${{ steps.name.outputs.FILE_NAME }}"
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: |
+            ${{ steps.name.outputs.FILE_NAME }}.tex
+          working_directory: ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}
+      - name: Publish artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ steps.name.outputs.FILE_NAME }}.pdf
+          path: ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/${{ steps.name.outputs.FILE_NAME }}.pdf
+          if-no-files-found: error
+      - name: Share artifact
+        run: |
+          cp ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/${{ steps.name.outputs.FILE_NAME }}.pdf $GITHUB_WORKSPACE
 
-    - name: Install TeX Live
-      run: |
-        sudo apt-get install texlive-xetex
-        sudo apt-get install texlive-fonts-recommended
+  publish:
+    #if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    needs: compile
 
-    - name: Compile LaTeX files
-      working-directory: ${{ github.workspace }}/TexFiles
-      run: |
-        source_folder="./"  # Update with your source folder
-        destination_folder="./pdf_generated"  # Update with your destination folder
+    steps:
+      #- name: Set up Git repository
+      #  uses: actions/checkout@v4
+      #- name: Copy file
+      #  env:
+      #    SRC_FOLDER_PATH: ${{ needs.compile.outputs.file_path }}
+      #    TARGET_BRANCH: 'docs'
+      #  run: |
+      #    files=${{ github.workspace }}/${{ needs.compile.outputs.file_path }}/${{ needs.compile.outputs.file_name }}.pdf
+      #    git config --global user.name 'GitHub Action'
+      #    git config --global user.email 'action@github.com'
+      #    git fetch
+      #    git checkout $TARGET_BRANCH
+      #    git checkout ${GITHUB_REF##*/} -- $files
+      #    git add -A
+      #    git diff-index --quiet HEAD || git commit -am "Deploy documents"
+      #    git push origin $TARGET_BRANCH
+      #  #          files=$(find $SRC_FOLDER_PATH -type f -name "*.pdf")
 
-        mkdir -p ./TexFiles/$destination_folder
+      - name: Set up Git repository
+        uses: actions/checkout@v3
 
-        for file in $source_folder/*.tex; do
-          pdflatex -output-directory=$destination_folder $file
-        done
+      - name: Grab document
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ needs.compile.outputs.file_name }}.pdf
+          path: ${{ github.workspace }}/${{ needs.compile.outputs.file_path }}
 
-    - name: List generated PDFs
-      run: |
-        ls -l ./TexFiles/pdf_generated  # List the generated PDFs in the destination folder
+      - name: Configure git
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git fetch
 
-    - name: Commit and push PDF files
-      run: |
-        git config --global user.name 'GitHub Actions'
-        git config --global user.email 'actions@github.com'
-        git add ./TexFiles/pdf_generated/*.pdf
-        git commit -m "Add generated PDF files"
-        git push
-
+      - name: Publish document
+        env:
+          TARGET_BRANCH: 'docs'
+        run: |
+          git checkout -b $TARGET_BRANCH
+          git checkout ${GITHUB_HEAD_REF##*/} -- ${{ github.workspace }}/${{ needs.compile.outputs.file_path }}/${{ needs.compile.outputs.file_name }}.pdf
+          git add -A
+          git diff-index --quiet HEAD || git commit -am "Deploy documents"
+          git push origin $TARGET_BRANCH

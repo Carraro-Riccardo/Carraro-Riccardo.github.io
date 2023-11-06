@@ -6,7 +6,6 @@ on:
     types: [opened, reopened, synchronize, closed]
     paths:
       - '**.tex'
-  push:
 
 jobs:
   compile:
@@ -23,6 +22,8 @@ jobs:
         uses: tj-actions/changed-files@v40
         with:
           format: 'space-delimited'
+          files: |
+            **.tex
       - name: Extract path
         id: path
         run: |
@@ -38,20 +39,17 @@ jobs:
           echo "::notice::Modified files: ${{ steps.files.outputs.added_modified }}"
           echo "::notice::Path: ${{ steps.path.outputs.FILE_PATH }}"
           echo "::notice::File: ${{ steps.name.outputs.FILE_NAME }}"
-      - name: Create mock PDF
-        run: |
-          touch ${{ github.workspace }}/test.pdf
-      #- name: Compile LaTeX document
-      #  uses: xu-cheng/latex-action@v3
-      #  with:
-      #    root_file: |
-      #      ${{ steps.name.outputs.FILE_NAME }}.tex
-      #    working_directory: ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: |
+            ${{ steps.name.outputs.FILE_NAME }}.tex
+          working_directory: ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}
       - name: Publish artifact
         uses: actions/upload-artifact@v3
         with:
-          name: test.pdf
-          path: ${{ github.workspace }}/test.pdf
+          name: ${{ steps.path.outputs.FILE_NAME }}.pdf
+          path: ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/${{ steps.path.outputs.FILE_NAME }}.pdf
           if-no-files-found: error
 
   publish:
@@ -64,27 +62,24 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
-
       - name: Configure Git
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
           git fetch
-
       - name: Clean up
         run: |
           git checkout $TARGET_BRANCH
-          rm -f test.pdf
-          git rm --ignore-unmatch test.pdf
-          
+          rm -f ${{ needs.compile.outputs.file_path }}/${{ needs.compile.outputs.file_name }}.pdf
+          git rm --ignore-unmatch ${{ needs.compile.outputs.file_path }}/${{ needs.compile.outputs.file_name }}.pdf
       - name: Grab document
         uses: actions/download-artifact@v3
         with:
-          name: test.pdf
-
+          name: ${{ needs.compile.outputs.file_name }}.pdf
+          path: ${{ needs.compile.outputs.file_path }}
       - name: Publish document
         run: |
           git checkout ${GITHUB_HEAD_REF##*/}
-          git add test.pdf
+          git add ${{ needs.compile.outputs.file_path }}/${{ needs.compile.outputs.file_name }}.pdf
           git diff-index --quiet HEAD || git commit -am "Deploy documents"
           git push origin $TARGET_BRANCH

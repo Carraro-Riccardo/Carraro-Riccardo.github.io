@@ -79,10 +79,10 @@ jobs:
         env:
           TARGET_BRANCH: 'docs'
         run: |
+          rm ${{ github.workspace }}/test.pdf
+          git rm ${{ github.workspace }}/test.pdf
           git checkout $TARGET_BRANCH
           git checkout ${GITHUB_HEAD_REF##*/}
-          git rm ${{ github.workspace }}/test.pdf
-          rm ${{ github.workspace }}/test.pdf
           git add ${{ github.workspace }}/test.pdf
           git diff-index --quiet HEAD || git commit -am "Deploy documents"
           git push origin $TARGET_BRANCH

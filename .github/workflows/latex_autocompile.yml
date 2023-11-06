@@ -63,25 +63,30 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v3
 
-      - name: Grab document
-        uses: actions/download-artifact@v3
-        with:
-          name: test.pdf
-          path: ${{ github.workspace }}
-
-      - name: Configure git
+      - name: Configure Git
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
           git fetch
 
-      - name: Publish document
+      - name: Clean up
         env:
           TARGET_BRANCH: 'docs'
         run: |
           git checkout $TARGET_BRANCH
           rm -f /test.pdf
           git rm --ignore-unmatch /test.pdf
+          
+      - name: Grab document
+        uses: actions/download-artifact@v3
+        with:
+          name: test.pdf
+          path: ${{ github.workspace }}
+
+      - name: Publish document
+        env:
+          TARGET_BRANCH: 'docs'
+        run: 
           git checkout ${GITHUB_HEAD_REF##*/}
           git add ${{ github.workspace }}/test.pdf
           git diff-index --quiet HEAD || git commit -am "Deploy documents"

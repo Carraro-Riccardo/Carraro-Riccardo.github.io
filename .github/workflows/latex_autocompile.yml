@@ -80,9 +80,6 @@ jobs:
           path: ${{ github.workspace }}/${{ needs.compile.outputs.file_path }}
       - name: Publish document
         run: |
-          ls
-          ls ${{ needs.compile.outputs.file_path }}
-          ls ${{ github.workspace }}/${{ needs.compile.outputs.file_path }}
           git add ${{ needs.compile.outputs.file_path }}/${{ needs.compile.outputs.file_name }}.pdf
           git commit -am "Deploy documents"
           git push origin $TARGET_BRANCH

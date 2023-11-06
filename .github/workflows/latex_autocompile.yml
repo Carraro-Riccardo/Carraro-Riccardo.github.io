@@ -40,7 +40,7 @@ jobs:
           echo "::notice::File: ${{ steps.name.outputs.FILE_NAME }}"
       - name: Create mock PDF
         run: |
-          touch ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/${{ steps.name.outputs.FILE_NAME }}.pdf
+          touch ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/test.pdf
       #- name: Compile LaTeX document
       #  uses: xu-cheng/latex-action@v3
       #  with:
@@ -51,7 +51,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.name.outputs.FILE_NAME }}.pdf
-          path: ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/${{ steps.name.outputs.FILE_NAME }}.pdf
+          path: ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/test.pdf
           if-no-files-found: error
 
   publish:
@@ -66,7 +66,7 @@ jobs:
       - name: Grab document
         uses: actions/download-artifact@v3
         with:
-          name: ${{ needs.compile.outputs.file_name }}.pdf
+          name: test.pdf
           path: ${{ github.workspace }}/${{ needs.compile.outputs.file_path }}
 
       - name: Configure git
@@ -80,6 +80,6 @@ jobs:
           TARGET_BRANCH: 'docs'
         run: |
           git checkout ${GITHUB_HEAD_REF##*/}
-          git add ${{ github.workspace }}/${{ needs.compile.outputs.file_path }}/${{ needs.compile.outputs.file_name }}.pdf
+          git add ${{ github.workspace }}/${{ needs.compile.outputs.file_path }}/test.pdf
           git diff-index --quiet HEAD || git commit -am "Deploy documents"
           git push origin $TARGET_BRANCH

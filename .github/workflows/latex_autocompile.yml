@@ -75,9 +75,9 @@ jobs:
         run: |
           git checkout $TARGET_BRANCH
           ls
-          rm -f /test.pdf
+          rm -f test.pdf
           ls
-          git rm --ignore-unmatch /test.pdf
+          git rm --ignore-unmatch test.pdf
           
       - name: Grab document
         uses: actions/download-artifact@v3

@@ -79,12 +79,7 @@ jobs:
         env:
           TARGET_BRANCH: 'docs'
         run: |
-          git checkout $TARGET_BRANCH
-          dir -l
           git checkout ${GITHUB_HEAD_REF##*/}
-          cd ./TexFiles
-          dir -l
-          cd ..
           git add ${{ github.workspace }}/${{ needs.compile.outputs.file_path }}/${{ needs.compile.outputs.file_name }}.pdf
           git diff-index --quiet HEAD || git commit -am "Deploy documents"
           git push origin $TARGET_BRANCH

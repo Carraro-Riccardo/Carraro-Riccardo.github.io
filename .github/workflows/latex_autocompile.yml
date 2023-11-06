@@ -83,13 +83,12 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: test.pdf
-          path: ${{ github.workspace }}
 
       - name: Publish document
         env:
           TARGET_BRANCH: 'docs'
         run: 
           git checkout ${GITHUB_HEAD_REF##*/}
-          git add ${{ github.workspace }}/test.pdf
+          git add test.pdf
           git diff-index --quiet HEAD || git commit -am "Deploy documents"
           git push origin $TARGET_BRANCH

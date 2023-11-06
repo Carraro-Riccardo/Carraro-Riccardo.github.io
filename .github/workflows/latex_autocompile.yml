@@ -79,5 +79,6 @@ jobs:
         run: |
           git checkout ${GITHUB_HEAD_REF##*/}
           git add ${{ needs.compile.outputs.file_path }}/${{ needs.compile.outputs.file_name }}.pdf
-          git diff-index --quiet HEAD || git commit -am "Deploy documents"
+          git commit -am "Deploy documents"
           git push origin $TARGET_BRANCH
+        #git diff-index --quiet HEAD || git commit -am "Deploy documents"

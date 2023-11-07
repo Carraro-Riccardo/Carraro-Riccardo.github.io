@@ -17,7 +17,7 @@ jobs:
 
     - name: Retrieve pull request information
       env: 
-        COMMIT_ID: "${{github.event.pull_request.head.sha | slice(0, 7)}}"
+        COMMIT_ID: "${{github.event.pull_request.head.sha}}"
         PR_NUMBER: "${{github.event.pull_request.number}}" 
         PR_TITLE: "${{ github.event.pull_request.title }}"
         AUTHOR: "${{ github.actor }}"

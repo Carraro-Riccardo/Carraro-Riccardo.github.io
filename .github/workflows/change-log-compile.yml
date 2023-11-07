@@ -22,7 +22,7 @@ jobs:
         PR_TITLE: "${{ github.event.pull_request.title }}"
         AUTHOR: "${{ github.actor }}"
       run: |
-        COMMIT_ID=$(git rev-parse --short ${{ github.sha }})
+        COMMIT_ID=${{ github.sha | slice(0, 7)}}
         DATA=$(date)
         echo "$COMMIT_ID;$PR_NUMBER;$PR_TITLE;$AUTHOR;$DATA" > log.txt
         cat log.txt

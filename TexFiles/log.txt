@@ -1,0 +1,1 @@
+8fdf56d;26;Update latex_autocompile.yml;Carraro-Riccardo;Tue Nov  7 20:32:05 UTC 2023

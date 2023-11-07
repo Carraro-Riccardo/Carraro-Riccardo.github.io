@@ -17,8 +17,7 @@ jobs:
 
     - name: Retrive pull request information
       run: |
-        echo "${{ github.event.pull_request.pull_number }}"
         echo "${{ github.event.pull_request.title }}"
-        echo "${{ github.event.pull_request.body }}"
         echo "${{ github.actor }}"
         date
+        echo "${{ github.event.issue.number }}"

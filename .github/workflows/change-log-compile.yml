@@ -21,3 +21,4 @@ jobs:
         echo "${{ github.actor }}"
         date
         echo "${{github.event.pull_request.number}}"
+        echo "${{ github.sha }}"

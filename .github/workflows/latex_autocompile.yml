@@ -65,10 +65,9 @@ jobs:
       - name: saving pull request information
         env:
           PR_NUMBER: "${{github.event.pull_request.number}}" 
-          COMMIT_TITLE: "${{github.event.commits[0].message}}"
+          COMMIT_TITLE: "${{github.event.pull_request.title}}"
           AUTHOR: "${{ github.actor }}"
         run: |
-          $COMMIT_TITLE=$(git show -s --format=%s)
           COMMIT_ID=$(echo ${{github.event.pull_request.head.sha}} | cut -c1-7)
           DATA=$(date -u +'%d-%m-%Y %a')
           git checkout ${{ github.head_ref }}

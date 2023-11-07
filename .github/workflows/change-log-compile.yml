@@ -21,4 +21,4 @@ jobs:
         echo "${{ github.event.pull_request.title }}"
         echo "${{ github.event.pull_request.body }}"
         echo "${{ github.actor }}"
-        date +%s
+        date

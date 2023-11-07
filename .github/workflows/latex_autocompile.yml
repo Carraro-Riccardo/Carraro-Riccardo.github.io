@@ -75,6 +75,7 @@ jobs:
 
           git add ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/log.txt
           git commit -m "Update logs file"
+          git pull
           git push origin HEAD:${{ github.head_ref }}
           
   publish:

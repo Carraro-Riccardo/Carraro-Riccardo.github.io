@@ -65,15 +65,17 @@ jobs:
       - name: saving pull request information
         env:
           PR_NUMBER: "${{github.event.pull_request.number}}" 
-          COMMIT_TITLE: "${{ github.event.head_commit.message }}"
+          COMMIT_TITLE: "${{github.event.commits[0].message}}"
           AUTHOR: "${{ github.actor }}"
         run: |
           COMMIT_ID=$(echo ${{github.event.pull_request.head.sha}} | cut -c1-7)
           DATA=$(date)
           git checkout ${{ github.head_ref }}
+
+          OLD_CONTENT=$(cat ${{ needs.compile.outputs.file_path }}/log.txt)
+          NEW_CONTENT="$COMMIT_ID;$PR_NUMBER;$COMMIT_TITLE;$AUTHOR;$DATA\n"+$OLD_CONTENT 
+          NEW_CONTENT > ${{ needs.compile.outputs.file_path }}/log.txt
           
-          echo "$COMMIT_ID;$PR_NUMBER;$COMMIT_TITLE;$AUTHOR;$DATA" >> ${{ needs.compile.outputs.file_path }}/log.txt
-          cat ${{ needs.compile.outputs.file_path }}/log.txt
 
           git add ${{ needs.compile.outputs.file_path }}/log.txt
           git commit -m "Update logs file"

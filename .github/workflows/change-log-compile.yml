@@ -17,12 +17,11 @@ jobs:
 
     - name: Retrieve pull request information
       env: 
-        COMMIT_ID: "${{github.event.pull_request.head.sha}}"
         PR_NUMBER: "${{github.event.pull_request.number}}" 
         PR_TITLE: "${{ github.event.pull_request.title }}"
         AUTHOR: "${{ github.actor }}"
       run: |
-        COMMIT_ID=$(echo ${{ github.sha}} | cut -c1-7)
+        COMMIT_ID=$(echo ${{github.event.pull_request.head.sha}} | cut -c1-7)
         DATA=$(date)
         echo "$COMMIT_ID;$PR_NUMBER;$PR_TITLE;$AUTHOR;$DATA" > log.txt
         cat log.txt

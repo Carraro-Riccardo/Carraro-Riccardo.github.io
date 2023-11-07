@@ -3,7 +3,7 @@ name: LaTeX compiler
 on:
   #triggered when PR is (re)opened or synchronized (new commit to head)
   pull_request:
-    types: [opened, reopened, closed]
+    types: [opened, reopened, synchronize, closed]
     paths:
       - '**.tex'
 
@@ -54,7 +54,7 @@ jobs:
   log:
     runs-on: ubuntu-latest
     needs: compile
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    if: github.event_name == 'pull_request' && (github.event.action == 'closed' || github.event.pull_request.merged == true)
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v4

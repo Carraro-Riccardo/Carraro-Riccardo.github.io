@@ -1,0 +1,22 @@
+name: LaTeX Compilation
+
+on:
+  #triggered when PR is (re)opened or synchronized (new commit to head)
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
+    paths:
+      - '**.tex'
+
+jobs:
+  compile-latex:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Retrive pull request information
+      run: |
+        echo "${{ github.event.pull_request.pull_number }}"
+        echo "${{ github.event.pull_request.title }}"
+        echo "${{ github.event.pull_request.body }}"

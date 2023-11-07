@@ -74,7 +74,7 @@ jobs:
 
           OLD_CONTENT=$(cat ${{ needs.compile.outputs.file_path }}/log.txt)
           NEW_CONTENT="$COMMIT_ID;$PR_NUMBER;$COMMIT_TITLE;$AUTHOR;$DATA\n"+$OLD_CONTENT 
-          $NEW_CONTENT > ${{ needs.compile.outputs.file_path }}/log.txt
+          echo -e $NEW_CONTENT > ${{ needs.compile.outputs.file_path }}/log.txt
           
 
           git add ${{ needs.compile.outputs.file_path }}/log.txt

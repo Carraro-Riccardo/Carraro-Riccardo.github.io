@@ -15,10 +15,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Retrive pull request information
+    - name: Retrieve pull request information
       run: |
         echo "${{ github.event.pull_request.title }}"
         echo "${{ github.actor }}"
         date
         echo "${{github.event.pull_request.number}}"
-        echo "$(git rev-parse --short HEAD)"
+        echo "$(git rev-parse --short ${{ github.sha }})"

@@ -68,7 +68,7 @@ jobs:
           COMMIT_TITLE: "${{github.event.commits[0].message}}"
           AUTHOR: "${{ github.actor }}"
         run: |
-          $COMMIT_TITLE=$(echo "$(git show -s --format=%s)");
+          $COMMIT_TITLE=$(git show -s --format=%s)
           COMMIT_ID=$(echo ${{github.event.pull_request.head.sha}} | cut -c1-7)
           DATA=$(date -u +'%d-%m-%Y %a')
           git checkout ${{ github.head_ref }}

@@ -68,7 +68,7 @@ jobs:
         run: |
           COMMIT_ID=$(echo ${{github.event.pull_request.head.sha}} | cut -c1-7)
           DATA=$(date)
-          git checkout Carraro-Riccardo-patch-1
+          git checkout -b dc
           echo "$COMMIT_ID;$PR_NUMBER;$PR_TITLE;$AUTHOR;$DATA" >> ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/log.txt
           cat ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/log.txt
 

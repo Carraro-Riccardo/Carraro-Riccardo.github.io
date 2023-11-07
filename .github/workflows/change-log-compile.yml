@@ -21,4 +21,4 @@ jobs:
         echo "${{ github.actor }}"
         date
         echo "${{github.event.pull_request.number}}"
-        echo "$(git rev-parse --short ${{ github.sha }})"
+        echo "$(git rev-parse ${{ github.sha }})"

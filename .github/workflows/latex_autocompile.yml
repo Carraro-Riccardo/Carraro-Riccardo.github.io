@@ -54,7 +54,6 @@ jobs:
   log:
     runs-on: ubuntu-latest
     needs: compile
-    if: github.event_name == 'pull_request' && github.event.action != 'reopened' && contains(github.event.pull_request.changed_files, '.tex')
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v4

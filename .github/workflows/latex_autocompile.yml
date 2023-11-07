@@ -69,6 +69,7 @@ jobs:
         run: |
           COMMIT_ID=$(echo ${{github.event.pull_request.head.sha}} | cut -c1-7)
           DATA=$(date)
+          cd ./TexFiles
           echo "$COMMIT_ID;$PR_NUMBER;$PR_TITLE;$AUTHOR;$DATA" >> log.txt
           cat log.txt
           dir

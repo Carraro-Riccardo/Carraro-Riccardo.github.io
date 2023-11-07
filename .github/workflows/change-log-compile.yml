@@ -20,4 +20,4 @@ jobs:
         echo "${{ github.event.pull_request.title }}"
         echo "${{ github.actor }}"
         date
-        echo "${{ github.event.issue.number }}"
+        echo "${{github.event.pull_request.number}}"

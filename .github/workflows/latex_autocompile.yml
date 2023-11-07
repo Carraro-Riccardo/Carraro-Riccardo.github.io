@@ -73,10 +73,10 @@ jobs:
           DATA=$(date)
           git checkout ${{ github.head_ref }}
           
-          echo "$COMMIT_ID;$PR_NUMBER;$PR_TITLE;$AUTHOR;$DATA" >> ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/log.txt
-          cat ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/log.txt
+          echo "$COMMIT_ID;$PR_NUMBER;$PR_TITLE;$AUTHOR;$DATA" >> ${{ needs.compile.outputs.file_path }}/log.txt
+          cat ${{ needs.compile.outputs.file_path }}/log.txt
 
-          git add ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/log.txt
+          git add ${{ needs.compile.outputs.file_path }}/log.txt
           git commit -m "Update logs file"
           git push origin ${{ github.head_ref }}
           

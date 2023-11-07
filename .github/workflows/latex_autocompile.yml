@@ -68,13 +68,12 @@ jobs:
         run: |
           COMMIT_ID=$(echo ${{github.event.pull_request.head.sha}} | cut -c1-7)
           DATA=$(date)
-          git checkout -b dc
           echo "$COMMIT_ID;$PR_NUMBER;$PR_TITLE;$AUTHOR;$DATA" >> ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/log.txt
           cat ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/log.txt
 
           git add ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/log.txt
           git commit -m "Update logs file"
-          git push origin
+          git push origin HEAD
           
   publish:
     if: github.event.pull_request.merged == true

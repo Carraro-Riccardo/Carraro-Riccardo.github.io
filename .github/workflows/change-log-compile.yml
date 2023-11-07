@@ -3,7 +3,7 @@ name: LaTeX Compilation
 on:
   #triggered when PR is (re)opened or synchronized (new commit to head)
   pull_request:
-    types: [opened, reopened, synchronize, closed]
+    types: [opened, reopened]
     paths:
       - '**.tex'
 

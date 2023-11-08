@@ -51,6 +51,7 @@ jobs:
           name: ${{ steps.name.outputs.FILE_NAME }}.pdf
           path: ${{ github.workspace }}/${{ steps.path.outputs.FILE_PATH }}/${{ steps.name.outputs.FILE_NAME }}.pdf
           if-no-files-found: error
+          
   log:
     runs-on: ubuntu-latest
     needs: compile
@@ -76,7 +77,6 @@ jobs:
           NEW_CONTENT="$COMMIT_ID;$PR_NUMBER;$COMMIT_TITLE;$AUTHOR;$DATA\n$OLD_CONTENT"
           echo -e "$NEW_CONTENT" > ${{ needs.compile.outputs.file_path }}/log.txt
           
-
           git add ${{ needs.compile.outputs.file_path }}/log.txt
           git commit -m "Update logs file"
           git push origin ${{ github.head_ref }}

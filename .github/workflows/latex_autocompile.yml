@@ -96,18 +96,23 @@ jobs:
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
           git fetch
+      - name: Update path
+        id: publish_path
+        run: |
+          PATH="${{ needs.compile.outputs.file_path }}"
+          echo "PUBLISH_PATH=$(dirname "$PATH")" >> $GITHUB_OUTPUT
       - name: Remove older version
         run: |
           git checkout $TARGET_BRANCH
-          rm -f ${{ needs.compile.outputs.file_path }}/${{ needs.compile.outputs.file_name }}.pdf
-          git rm --ignore-unmatch ${{ needs.compile.outputs.file_path }}/${{ needs.compile.outputs.file_name }}.pdf
+          rm -f ${{ steps.publish_path.outputs.PUBLISH_PATH }}/${{ needs.compile.outputs.file_name }}.pdf
+          git rm --ignore-unmatch ${{ steps.publish_path.outputs.PUBLISH_PATH }}/${{ needs.compile.outputs.file_name }}.pdf
       - name: Grab document
         uses: actions/download-artifact@v3
         with:
           name: ${{ needs.compile.outputs.file_name }}.pdf
-          path: ${{ github.workspace }}/${{ needs.compile.outputs.file_path }}
+          path: ${{ github.workspace }}/${{ steps.publish_path.outputs.PUBLISH_PATH }}
       - name: Publish document
         run: |
-          git add ${{ needs.compile.outputs.file_path }}/${{ needs.compile.outputs.file_name }}.pdf
+          git add ${{ steps.publish_path.outputs.PUBLISH_PATH }}/${{ needs.compile.outputs.file_name }}.pdf
           git commit -am "Publish document ${{ needs.compile.outputs.file_name }}.pdf"
           git push origin $TARGET_BRANCH

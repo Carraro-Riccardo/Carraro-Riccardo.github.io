@@ -73,7 +73,7 @@ jobs:
           DATA=$(date -u +'%d-%m-%Y %a')
           git checkout ${{ github.head_ref }}
 
-          "" >> ${{ needs.compile.outputs.file_path }}/log.txt
+          touch ${{ needs.compile.outputs.file_path }}/log.txt
 
           OLD_CONTENT=$(cat ${{ needs.compile.outputs.file_path }}/log.txt)
           NEW_CONTENT="$COMMIT_ID;$PR_NUMBER;$COMMIT_TITLE;$AUTHOR;$DATA\n$OLD_CONTENT"

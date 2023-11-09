@@ -42,7 +42,7 @@ function add_folder_contents {
       # Se è un file, aggiungi un link al file nel Markdown
       clear_folder_path=$(echo "$current_folder" | cut -c 3-)
       echo "<li class=\"file-item\">" >> "../$markdown_file"
-      echo "<span class=\"file-name\"> $(basename "$item") </span>" >> "../$markdown_file"
+      echo "<span class=\"file-name\"><a href=\"$folder_path$clear_folder_path/$(basename "$item")\"> $(basename "$item") </a></span>" >> "../$markdown_file"
       echo "<a href=\"$folder_path$clear_folder_path/$(basename "$item")\" class=\"download-button\" download> download</a>" >> "../$markdown_file"
       #echo "${indent}- [$(basename "$item")]($folder_path$clear_folder_path/$(basename "$item"))" >> "../$markdown_file"
       echo "</li>" >> "../$markdown_file"

@@ -42,7 +42,7 @@ function add_folder_contents {
       clear_folder_path=$(echo "$current_folder" | cut -c 3-)
       echo "<li>" >> "../$markdown_file"
       echo "<span> $(basename "$item") </span>" >> "../$markdown_file"
-      echo "<a href=$folder_path$clear_folder_path/$(basename "$item") download> download</a>" >> "../$markdown_file"
+      echo "<a href=\"$folder_path$clear_folder_path/$(basename "$item")\" download> download</a>" >> "../$markdown_file"
       #echo "${indent}- [$(basename "$item")]($folder_path$clear_folder_path/$(basename "$item"))" >> "../$markdown_file"
       echo "</li>" >> "../$markdown_file"
     elif [ -d "$item" ]; then

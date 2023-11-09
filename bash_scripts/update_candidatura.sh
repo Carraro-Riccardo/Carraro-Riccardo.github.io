@@ -32,15 +32,33 @@ echo "---" >> "../$markdown_file"
 echo "### Presentazione e Candidatura"
 
 
+<ul class="file-list">
+        <li class="file-item">
+            <span class="file-name">File 1.pdf</span>
+            <a href="path/to/File1.pdf" class="download-button" download>Download</a>
+        </li>
+        <li class="file-item">
+            <span class="file-name">File 2.pdf</span>
+            <a href="path/to/File2.pdf" class="download-button" download>Download</a>
+        </li>
+        <!-- Add more files as needed -->
+</ul>
+
+
 # Funzione ricorsiva per aggiungere il nome delle sottocartelle e il loro contenuto
 function add_folder_contents {
   local current_folder="$1"
   local indent="$2"
+  echo "<ul>" >> "../$markdown_file"
   for item in "$current_folder"/*; do
     if [ -f "$item" ]; then
       # Se è un file, aggiungi un link al file nel Markdown
       clear_folder_path=$(echo "$current_folder" | cut -c 3-)
-      echo "${indent}- [$(basename "$item")]($folder_path$clear_folder_path/$(basename "$item"))" >> "../$markdown_file"
+      echo "<li>" >> "../$markdown_file"
+      echo "<span> $(basename "$item") </span>" >> "../$markdown_file"
+      echo "<a href=$folder_path$clear_folder_path/$(basename "$item") download> download</a>" >> "../$markdown_file"
+      #echo "${indent}- [$(basename "$item")]($folder_path$clear_folder_path/$(basename "$item"))" >> "../$markdown_file"
+      echo "</li>" >> "../$markdown_file"
     elif [ -d "$item" ]; then
       # Se è una sottocartella, aggiungi il nome e poi chiamata ricorsiva
       folder_name=$(basename "$item")
@@ -48,6 +66,7 @@ function add_folder_contents {
       add_folder_contents "$item" "  $indent" # Aggiungi uno spazio di indentazione
     fi
   done
+  echo "</ul>" >> "../$markdown_file"
 }
 
 # Esegui la funzione ricorsiva sulla cartella principale

@@ -31,20 +31,6 @@ echo "title: Candidatura" >> "../$markdown_file"
 echo "---" >> "../$markdown_file"
 echo "### Presentazione e Candidatura"
 
-
-<ul class="file-list">
-        <li class="file-item">
-            <span class="file-name">File 1.pdf</span>
-            <a href="path/to/File1.pdf" class="download-button" download>Download</a>
-        </li>
-        <li class="file-item">
-            <span class="file-name">File 2.pdf</span>
-            <a href="path/to/File2.pdf" class="download-button" download>Download</a>
-        </li>
-        <!-- Add more files as needed -->
-</ul>
-
-
 # Funzione ricorsiva per aggiungere il nome delle sottocartelle e il loro contenuto
 function add_folder_contents {
   local current_folder="$1"

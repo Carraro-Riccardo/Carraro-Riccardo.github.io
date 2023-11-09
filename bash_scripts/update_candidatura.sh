@@ -29,7 +29,7 @@ echo "---" >> "../$markdown_file"
 echo "layout: default" >> "../$markdown_file"
 echo "title: Candidatura" >> "../$markdown_file"
 echo "---" >> "../$markdown_file"
-echo "<style> body { font-family: Arial, sans-serif; margin: 20px; } .file-list { list-style: none; padding: 0; } .file-item { display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding: 10px; align-items: center; } .file-name { flex: 1; margin-right: 10px; } .download-button { background-color: #4CAF50; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; cursor: pointer; border: none; border-radius: 4px; } .folder-name { font-weight: bold; color: #ff333a; font-size: 16px; } </style>" >> "../$markdown_file"
+echo "<style> body { font-family: Arial, sans-serif; margin: 20px; } .file-list { list-style: none; padding: 0; } .file-item { display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding: 10px; align-items: center; } .file-name { flex: 1; margin-right: 10px; text-decoration: underline;} .download-button { background-color: #4CAF50; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; cursor: pointer; border: none; border-radius: 4px; } .folder-name { font-weight: bold; color: #ff333a; font-size: 16px; } </style>" >> "../$markdown_file"
 echo "### Presentazione e Candidatura"
 
 # Funzione ricorsiva per aggiungere il nome delle sottocartelle e il loro contenuto
@@ -42,7 +42,7 @@ function add_folder_contents {
       # Se è un file, aggiungi un link al file nel Markdown
       clear_folder_path=$(echo "$current_folder" | cut -c 3-)
       echo "<li class=\"file-item\">" >> "../$markdown_file"
-      echo "<span class=\"file-name\"><a href=\"$folder_path$clear_folder_path/$(basename "$item")\"> $(basename "$item") </a></span>" >> "../$markdown_file"
+      echo "<a href=\"$folder_path$clear_folder_path/$(basename "$item")\" class=\"file-name\"> $(basename "$item") </a>" >> "../$markdown_file"
       echo "<a href=\"$folder_path$clear_folder_path/$(basename "$item")\" class=\"download-button\" download> download</a>" >> "../$markdown_file"
       #echo "${indent}- [$(basename "$item")]($folder_path$clear_folder_path/$(basename "$item"))" >> "../$markdown_file"
       echo "</li>" >> "../$markdown_file"

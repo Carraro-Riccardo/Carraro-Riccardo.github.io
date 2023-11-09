@@ -2,7 +2,7 @@
 layout: default
 title: Candidatura
 ---
-<style>body{font-family:Arial,sans-serif;margin:20px;} .file-list{list-style:none;padding:0;} .file-item{display:flex;justify-content:space-between;border-bottom:1px solid #ddd;padding:10px;align-items:center;} .file-name{flex:1;margin-right:10px;text-decoration:underline;color:inherit;} a:visited {color: #bbb;} .download-button a:visited {color: white} .download-button{background-color:#239fa9;color:white;padding:8px 16px;text-align:center;text-decoration:none;display:inline-block;font-size:14px;cursor:pointer;border:none;border-radius:4px;} .download-button:active{background-color:white;} .folder-name{font-weight:bold;color:#ff333a;font-size:16px;}</style>
+<style>body{font-family:Arial,sans-serif;margin:20px;} .file-list{list-style:none;padding:0;} .file-item{display:flex;justify-content:space-between;border-bottom:1px solid #ddd;padding:10px;align-items:center;} .file-name{flex:1;margin-right:10px;text-decoration:underline;color:inherit;} .file-name a:visited {color: #bbb !important;} .download-button{background-color:#239fa9;color:white;padding:8px 16px;text-align:center;text-decoration:none;display:inline-block;font-size:14px;cursor:pointer;border:none;border-radius:4px;} .download-button:active{background-color:white;} .folder-name{font-weight:bold;color:#ff333a;font-size:16px;}</style>
 <ul class="file-list">
 <li class="file-item">
 <a href="./docs/Candidatura//LetteraDiPresentazione.pdf" class="file-name"> LetteraDiPresentazione.pdf </a>

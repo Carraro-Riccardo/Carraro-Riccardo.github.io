@@ -29,20 +29,21 @@ echo "---" >> "../$markdown_file"
 echo "layout: default" >> "../$markdown_file"
 echo "title: Candidatura" >> "../$markdown_file"
 echo "---" >> "../$markdown_file"
+echo "<style> body { font-family: Arial, sans-serif; margin: 20px; } .file-list { list-style: none; padding: 0; } .file-item { display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding: 10px; align-items: center; } .file-name { flex: 1; margin-right: 10px; } .download-button { background-color: #4CAF50; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; cursor: pointer; border: none; border-radius: 4px; } </style>" >> "../$markdown_file"
 echo "### Presentazione e Candidatura"
 
 # Funzione ricorsiva per aggiungere il nome delle sottocartelle e il loro contenuto
 function add_folder_contents {
   local current_folder="$1"
   local indent="$2"
-  echo "<ul>" >> "../$markdown_file"
+  echo "<ul class=\"file-list\">" >> "../$markdown_file"
   for item in "$current_folder"/*; do
     if [ -f "$item" ]; then
       # Se è un file, aggiungi un link al file nel Markdown
       clear_folder_path=$(echo "$current_folder" | cut -c 3-)
-      echo "<li>" >> "../$markdown_file"
-      echo "<span> $(basename "$item") </span>" >> "../$markdown_file"
-      echo "<a href=\"$folder_path$clear_folder_path/$(basename "$item")\" download> download</a>" >> "../$markdown_file"
+      echo "<li class=\"file-item\">" >> "../$markdown_file"
+      echo "<span> $(basename "$item") </span class=\"file-name\">" >> "../$markdown_file"
+      echo "<a href=\"$folder_path$clear_folder_path/$(basename "$item")\" class=\"download-button\" download> download</a>" >> "../$markdown_file"
       #echo "${indent}- [$(basename "$item")]($folder_path$clear_folder_path/$(basename "$item"))" >> "../$markdown_file"
       echo "</li>" >> "../$markdown_file"
     elif [ -d "$item" ]; then

@@ -16,16 +16,22 @@ title: Candidatura
 <span class="file-name"> ValutazioneCapitolati.pdf </span>
 <a href="./docs/Candidatura//ValutazioneCapitolati.pdf" class="download-button" download> download</a>
 </li>
-- **Verbali**
+<li class="file-item">
+<span class="file-name folder-name">Verbali</span>
+</li>
 <ul class="file-list">
-  - **Esterni**
+<li class="file-item">
+<span class="file-name folder-name">Esterni</span>
+</li>
 <ul class="file-list">
 <li class="file-item">
 <span class="file-name"> 26-10-23.pdf </span>
 <a href="./docs/Candidatura/Verbali/Esterni/26-10-23.pdf" class="download-button" download> download</a>
 </li>
 </ul>
-  - **Interni**
+<li class="file-item">
+<span class="file-name folder-name">Interni</span>
+</li>
 <ul class="file-list">
 <li class="file-item">
 <span class="file-name"> 17-10-23.pdf </span>

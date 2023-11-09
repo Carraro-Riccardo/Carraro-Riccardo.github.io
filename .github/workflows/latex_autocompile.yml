@@ -73,11 +73,11 @@ jobs:
           DATA=$(date -u +'%d-%m-%Y %a')
           git checkout ${{ github.head_ref }}
 
-          OLD_CONTENT=$(cat ${{ needs.compile.outputs.file_path }}/log.txt)
-          NEW_CONTENT="$COMMIT_ID;$PR_NUMBER;$COMMIT_TITLE;$AUTHOR;$DATA\n$OLD_CONTENT"
-          echo -e "$NEW_CONTENT" > ${{ needs.compile.outputs.file_path }}/log.txt
+          OLD_CONTENT=$(cat ${{ needs.compile.outputs.file_path }}/log.csv)
+          NEW_CONTENT="$COMMIT_ID,$PR_NUMBER,$COMMIT_TITLE,$AUTHOR,$DATA\n$OLD_CONTENT"
+          echo -e "$NEW_CONTENT" > ${{ needs.compile.outputs.file_path }}/log.csv
           
-          git add ${{ needs.compile.outputs.file_path }}/log.txt
+          git add ${{ needs.compile.outputs.file_path }}/log.csv
           git commit -m "Update logs file"
           git push origin ${{ github.head_ref }}
           

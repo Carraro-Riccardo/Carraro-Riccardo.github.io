@@ -49,7 +49,12 @@ function add_folder_contents {
     elif [ -d "$item" ]; then
       # Se è una sottocartella, aggiungi il nome e poi chiamata ricorsiva
       folder_name=$(basename "$item")
-      echo "${indent}- **$folder_name**" >> "../$markdown_file"
+
+      echo "<li class=\"file-item\">" >> "../$markdown_file"
+      echo "<span class=\"file-name folder-name\">$folder_name</span>" >> "../$markdown_file"
+      echo "</li>" >> "../$markdown_file"
+      
+      #echo "${indent}- **$folder_name**" >> "../$markdown_file"
       add_folder_contents "$item" "  $indent" # Aggiungi uno spazio di indentazione
     fi
   done
